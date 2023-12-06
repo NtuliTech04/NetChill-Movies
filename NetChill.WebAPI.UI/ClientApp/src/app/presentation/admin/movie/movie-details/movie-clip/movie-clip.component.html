@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="info-header row">
+    <div class="title-nav">
+      <h3 class="title-text text-center">Upload Movie Files</h3>
+    </div>
+  </div>
+  <form [formGroup]="uploadFilesForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <div class="form-content row mb-5">
+      <div class="upload-poster mt-5 col-6">
+          <div class="poster-panel">
+            <div *ngIf="posterPreview">
+              <img [src]="posterPreview" class="poster-preview">
+            </div>
+            <div *ngIf="!posterPreview">
+              <div class="drag-area">
+                <div class="icon"><i class="fa fa-cloud-upload-alt"></i></div>
+                <header>Drag & Drop to Upload</header>
+                <span>OR</span>
+                <header>Browse File</header>
+              </div>
+            </div>
+          </div>
+          <div class="select-poster mt-3">
+            <button class="btn btn-secondary" id="browse-file">Browse File
+              <input type="file" hidden>
+            </button>
+          </div>
+      </div>
+
+
+
+      <div class="create-section mt-5 col-6">
+          <div class="row mb-3 d-flex">
+            <div class="col-3">
+              <label for="#" class="form-label">Movie Poster</label>
+            </div>
+            <div class="col-9 d-flex">
+              <input class="form-control" type="file" (change)="onSelectedPoster($event)" formControlName="moviePoster">
+              <!--Validation--->
+              <div class="text-danger" *ngIf="submitted && validateForm['moviePoster'].hasError('required')">Movie poster file is required.</div>
+              <div class="text-danger" *ngIf="submitted && validateForm['moviePoster'].hasError('invalidImageType')">Invalid image format. Only png and jpg are acceptable.</div>
+              <div class="text-danger" *ngIf="submitted && validateForm['moviePoster'].hasError('invalidImageSize')">Movie poster size cannot be more than {{imageMaxSize/1048576}}MB.</div>
+            </div>
+          </div>
+          <div class="row mb-3 d-flex">
+            <div class="col-3">
+              <label for="#" class="form-label">Movie Clip</label>
+            </div>
+            <div class="col-9 d-flex">
+              <input class="form-control" type="file" (change)="onSelectedVideo($event)" formControlName="videoClip">
+              <!--Validation--->
+              <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('required')">Movie clip file is required.</div>
+              <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('invalidVideoType')">Invalid video format. Only mp4, webm, and oog are acceptable.</div>
+              <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('invalidVideoSize')">Movie clip size cannot be more than {{videoMaxSize/1048576}}MB.</div>
+            </div>
+          </div>
+          <div class="row d-flex mt-5">
+            <div class="text-center">
+              <div class="mb-5">
+                <button class="btn btn-success btn-primary rounded-0" type="submit">Upload</button>
+              </div>
+            </div>
+          </div>
+      </div>
+   </div>
+ </form>
+</div>
+
+

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="info-header row">
+    <div class="title-nav">
+      <h3 class="title-text text-center">Add Movie Language</h3>
+    </div>
+  </div>
+  <form [formGroup]="createLanguageForm" (ngSubmit)="onSubmit()">
+    <div class="form-content row">
+    <div class="insert-section mt-5 col-6">
+      <div class="row mb-3 d-flex">
+        <div class="col-3">
+          <label for="#" class="form-label">Language</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" formControlName="spokenLanguage" name="spokenLanguage" id="spokenLanguage">
+          <!--Validation-->
+          <div class="text-danger" *ngIf="submitted && validateForm['spokenLanguage'].hasError('required')">Spoken Language field
+            is required.</div>
+          <div class="text-danger" *ngIf="submitted && validateForm['spokenLanguage'].hasError('pattern')">Spoken Language can
+            only be in 'Proper Case'.</div>
+        </div>
+      </div>
+      <div class="row mb-3 d-flex">
+        <div class="col-3">
+          <label for="#" class="form-label">Language Notes</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" formControlName="languageNotes" name="languageNotes" id="languageNotes">
+          <!--Validation-->
+          <div class="text-danger" *ngIf="submitted && validateForm['languageNotes'].hasError('required')">Language Notes field
+            is required.</div>
+          <div class="text-danger" *ngIf="submitted && validateForm['languageNotes'].hasError('pattern')">Language Notes can
+            only be in 'Sentence case'.</div>
+        </div>
+      </div>
+      <div class="row d-flex">
+        <div class="offset-3 col-9">
+          <div class="text-center mb-5">
+            <button class="btn btn-success btn-primary rounded-0 w-50" type="submit">Add Language</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="list-section mt-5 col-6"></div> -->
+  </div>
+</form>
+</div>

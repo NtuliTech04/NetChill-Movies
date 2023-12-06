@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/***Multi-Select***/
+body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+/**//*Multi-Select***/
+
+
+/***Menu Nav***/
+form.search{
+    position: absolute;
+    margin-left: 68.5%;
+}
+
+/***Movie Files Upload***/
+
+/**New Styles**/
+.upload-poster .poster-panel{
+  margin-left: 25%;
+  border: 2px solid #a5a5a5;
+  background: #f5f5f5;
+  height: 300px;
+  width: 200px;
+}
+
+.select-poster .btn {
+  margin-left: 25%;
+  width: 200px;
+}
+
+.poster-panel .drag-area {
+  height: 296px;
+  background: #f5f5f5;
+  border: 2px dashed #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drag-area.active{
+  border: 2px solid #6c757d;
+}
+
+.drag-area .icon{
+  font-size: 60px;
+  color:#6c757d;
+}
+
+.drag-area header{
+  font-size: 15px;
+  font-weight: bold;
+  color:#6c757d;
+}
+
+.drag-area span{
+  font-size: 18px;
+  font-weight: bold;
+  color:#6c757d;
+  margin: 10px 0 15px 0;
+}
+
+.poster-panel img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+
+/** //New Styles**/
+
+
+.row .poster-container{
+    border: 2px solid #a5a5a5;
+    background: #f5f5f5;
+    margin-left: 30%;
+    height: 300px;
+    width: 200px;
+}
+
+.row .poster-upload{
+    margin-left: 30%;
+}
+
+.row .poster-upload input{
+    width: 200px;
+}
+
+.poster-container img.img-thumbnail{
+    height: 296px;
+}
+/*** //Movie Files Upload***/
+
+
+/***Page Titles***/
+.info-header{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.info-header .title-nav {
+    background-color: #f5f5f5;
+    padding-top: 10px;
+    margin-left: 25%;
+    width: 50%;
+}
+.title-nav .title-text{
+    font-size:26px;
+    opacity:.9;
+}
+
+input[Type="checkbox"]{
+    height: 40px;
+    width: 20px;
+}
+
+/*** middle-border ***/
+/* .list-section {
+  border-left: #c4c4c4 solid 2px;
+  padding: 0;
+}
+
+.list-section,
+.insert-section {
+  height: 50vh;
+} */
+/*** //middle-border ***/
+
+
+/*** Movie Production ***/
+.custom-panel{
+  height: auto;
+  margin-left: 25%;
+  border: 1px solid #999;
+}
+.custom-panel .myPanel-heading,
+.custom-panel .myPanel-footer
+{
+  text-align: center;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #999;
+  padding: 10px;
+}
+
+.custom-panel .myPanel-body{
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 25%;
+  width: 50%;
+}
+
+.myPanel-body .alert-info{
+  color: #31708f;
+  border-color: #bce8f1;
+  background-color: #d9edf7;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.myPanel-body a.item-control{
+  float: right;
+  padding: 5px;
+}
+
+.custom-panel .myPanel-footer{
+  border-top: 1px solid #999;
+  border-bottom: none;
+}
+
+.myPanel-footer input.form-control{
+  margin-left: 12.5%;
+  margin-top: 20px;
+  font-size: 14px;
+  height: 30px;
+  width:75%;
+}
+
+.myPanel-footer .control-buttons{
+  margin: 20px 20px;
+}
+
+.control-buttons .btn{
+  font-size: 12px;
+}
+
+/*** //Movie Production ***/

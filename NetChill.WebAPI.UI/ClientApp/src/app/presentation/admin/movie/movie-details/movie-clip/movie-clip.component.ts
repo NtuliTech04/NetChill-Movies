@@ -1,5 +1,5 @@
 import { Guid } from 'guid-typescript';
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,6 +14,9 @@ import { MovieClipService } from 'src/app/shared/services/movie/movie-clip.servi
 })
 
 export class MovieClipComponent implements OnInit {
+
+  @ViewChild('poster', { static: false }) posterInput: ElementRef;
+
 
   movieRef: Guid;
   submitted: boolean = false;
@@ -71,9 +74,35 @@ export class MovieClipComponent implements OnInit {
   }
 
 
-  //Gets selected movie poster image file
-  onSelectedPoster(event: any): void {
+  //File drop handler
+  onDroppedPoster(poster: any): void {
 
+    //Sets the poster input element to a variable
+    let input = this.posterInput.nativeElement;
+
+    //Creates an instance of a DataTransfer Object
+    let dataTransfer = new DataTransfer();
+
+    //Then sets the poster file to it.
+    dataTransfer.items.add(poster[0]);
+
+    //Assigns object files to input files
+    input.files = dataTransfer.files;
+
+    //Triggers the change and input event for file input element
+    input.dispatchEvent(new Event('change'));
+    input.dispatchEvent(new Event('input'));
+    //=> Goes to posterInputEvent()
+  }
+
+
+  //If button is clicked the input is also clicked
+  browsePoster(){
+    this.posterInput.nativeElement.click();
+  }
+
+  //Gets selected movie poster image file
+  posterInputEvent(event: any): void {
     //Assign image file data to global variable
     this.posterFile = event.target.files[0];
 
@@ -99,15 +128,12 @@ export class MovieClipComponent implements OnInit {
           }
           else{
             this.formData.append('moviePoster', this.posterFile);
-
             //Show Poster Preview
             var reader = new FileReader();
-
+            reader.readAsDataURL(this.posterFile);
             reader.onload = () => {
               this.posterPreview = reader.result;
             };
-            reader.readAsDataURL(this.posterFile);
-
             return null; //Validation Succeeds
           }
         }

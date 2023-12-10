@@ -25,6 +25,7 @@ import { MovieGenreService } from './shared/services/movie/movie-genre.service';
 import { MovieLanguageService } from './shared/services/movie/movie-language.service';
 import { MovieProductionService } from './shared/services/movie/movie-production.service';
 import { MovieClipService } from './shared/services/movie/movie-clip.service';
+import { DragDropDirective } from './presentation/admin/movie/movie-details/movie-clip/drag-drop.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MovieClipService } from './shared/services/movie/movie-clip.service';
     MovieClipComponent,
     MovieDetailsComponent,
     MovieGenreComponent,
-    MovieLanguageComponent
+    MovieLanguageComponent,
+    DragDropDirective
   ],
   imports: [
     BrowserModule,

@@ -37,7 +37,6 @@ form.search{
 
 /***Movie Files Upload***/
 
-/**New Styles**/
 .upload-poster .poster-panel{
   margin-left: 25%;
   border: 2px solid #a5a5a5;
@@ -54,15 +53,14 @@ form.search{
 .poster-panel .drag-area {
   height: 296px;
   background: #f5f5f5;
-  border: 2px dashed #6c757d;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.drag-area.active{
-  border: 2px solid #6c757d;
+.upload-poster .drag-over{/**Drag over active**/
+  border: 2px dashed #6c757d;
 }
 
 .drag-area .icon{
@@ -92,9 +90,7 @@ form.search{
 
 
 
-/** //New Styles**/
-
-
+/** //Old Styles**/
 .row .poster-container{
     border: 2px solid #a5a5a5;
     background: #f5f5f5;

@@ -16,7 +16,7 @@ import { MovieClipService } from 'src/app/shared/services/movie/movie-clip.servi
 export class MovieClipComponent implements OnInit {
 
   @ViewChild('poster', { static: false }) posterInput: ElementRef;
-
+  @ViewChild('clip', { static: false }) clipInput: ElementRef;
 
   movieRef: Guid;
   submitted: boolean = false;
@@ -74,7 +74,14 @@ export class MovieClipComponent implements OnInit {
   }
 
 
-  //File drop handler
+  /*** Movie Poster ***/
+  //If button is clicked the input is also clicked
+  browsePoster(){
+    this.posterInput.nativeElement.click();
+    console.log(this.clipInput);
+  }
+
+  //Poster file drop handler
   onDroppedPoster(poster: any): void {
 
     //Sets the poster input element to a variable
@@ -92,13 +99,8 @@ export class MovieClipComponent implements OnInit {
     //Triggers the change and input event for file input element
     input.dispatchEvent(new Event('change'));
     input.dispatchEvent(new Event('input'));
+
     //=> Goes to posterInputEvent()
-  }
-
-
-  //If button is clicked the input is also clicked
-  browsePoster(){
-    this.posterInput.nativeElement.click();
   }
 
   //Gets selected movie poster image file
@@ -139,10 +141,39 @@ export class MovieClipComponent implements OnInit {
         }
       }
     };
+  /*** //Movie Poster ***/
 
+
+  /*** Movie Clip ***/
+  //If button is clicked the input is also clicked
+  browseClip(){
+    this.clipInput.nativeElement.click();
+  }
+
+  //Video file drop handler
+  onDroppedClip(video: any): void {
+
+    //Sets the clip input element to a variable
+    let input = this.clipInput.nativeElement;
+
+    //Creates an instance of a DataTransfer Object
+    let dataTransfer = new DataTransfer();
+
+    //Then sets the clip file to it.
+    dataTransfer.items.add(video[0]);
+
+    //Assigns object files to input files
+    input.files = dataTransfer.files;
+
+    //Triggers the change and input event for file input element
+    input.dispatchEvent(new Event('change'));
+    input.dispatchEvent(new Event('input'));
+
+    //=> Goes to videoInputEvent()
+  }
 
   //Gets selected movie video file
-  onSelectedVideo(event: any): void {
+  videoInputEvent(event: any): void {
 
     //Assign file data to global variable
     this.videoFile = event.target.files[0];
@@ -169,12 +200,43 @@ export class MovieClipComponent implements OnInit {
           }
           else{
             this.formData.append('videoClip', this.videoFile);
+            //Show preview & upload progress
+            this.videoFile.progress = 0; //Adds progress property to video file info.
+            setTimeout(() => {
+              const progressInterval = setInterval(() => {
+                if (this.videoFile.progress === 100) {
+                  clearInterval(progressInterval);
+                }
+                else {
+                  this.videoFile.progress += 5;
+                }
+              }, 200);
+            }, 1000);
+
             return null; //Validation Succeeds
           }
         }
       }
     };
 
+  //Removes the selected file & resets the file input
+  deleteClipFile() {
+    this.videoFile = null;
+    this.clipInput.nativeElement.click();
+  }
+
+  formatBytes(bytes: any, decimals: any) {
+    if (bytes === 0) {
+      return '0 Bytes';
+    }
+    const k = 1024;
+    const dm = decimals <= 0 ? 0 : decimals || 2;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  }
+
+  /*** //Movie Clip ***/
 
   onSubmit() {
     this.submitted = true;

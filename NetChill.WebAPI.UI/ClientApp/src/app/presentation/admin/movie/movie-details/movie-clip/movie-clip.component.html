@@ -25,7 +25,7 @@
         <div class="file-input">
           <input class="d-none" type="file" #poster (change)="posterInputEvent($event)" formControlName="moviePoster">
         </div>
-        <div class="validators">
+        <div class="poster-validators">
           <!--Validation--->
           <div class="text-danger" *ngIf="submitted && validateForm['moviePoster'].hasError('required')">Movie poster file is required.</div>
           <div class="text-danger" *ngIf="submitted && validateForm['moviePoster'].hasError('invalidImageType')">Invalid image format. Only png and jpg are acceptable.</div>
@@ -36,26 +36,199 @@
         </div>
       </div>
 
+      <style>
+        .upload-clip .container{
+          width: 450px;
+          height: 250px;
+          padding: 2rem;
+          text-align: center;
+          border: dashed 1px #979797;
+          position: relative;
+          margin: 0 auto;
+        }
+
+        .upload-clip input{
+          opacity: 0;
+          position: absolute;
+          z-index: 2;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+
+        .upload-clip label{
+          color: white;
+          width: 183px;
+          height: 44px;
+          border-radius: 21.5px;
+          background-color: #db202f;
+          padding: 8px 16px;
+        }
+
+        .upload-clip h3{
+          font-size: 20px;
+          font-weight: 600;
+          color: #38424c;
+        }
+
+        .upload-clip .drag-over{
+          animation: shake 1s;
+          animation-iteration-count: infinite;
+        }
+
+        .upload-clip .clip-loadview{
+          margin-top: 1.5rem;
+          display: flex;
+          flex-grow: 1;
+        }
+
+        .upload-clip .single-file {
+          display: block;/*flex*/
+          padding: 0.5rem;
+          justify-content: space-between;
+          align-items: center;
+          border: dashed 1px #979797;
+          margin-bottom: 1rem;
+        }
+
+        .upload-clip  .delete {
+          display: flex;
+          margin-left: 0.5rem;
+          cursor: pointer;
+          align-self: flex-end;
+        }
+
+        .clip-details{
+          width: 100%;
+        }
+
+        .clip-details .clip-name{
+          font-size: 14px;
+          font-weight: 500;
+          color: #353f4a;
+          margin: 0;
+        }
+
+        .clip-details .clip-size{
+          font-size: 12px;
+          font-weight: 500;
+          color: #a4a4a4;
+          margin: 0;
+          margin-bottom: 0.25rem;
+        }
+
+        /* Shake animation */
+        @keyframes shake {
+          0% {
+            transform: translate(1px, 1px) rotate(0deg);
+          }
+
+          10% {
+            transform: translate(-1px, -2px) rotate(-1deg);
+          }
+
+          20% {
+            transform: translate(-3px, 0px) rotate(1deg);
+          }
+
+          30% {
+            transform: translate(3px, 2px) rotate(0deg);
+          }
+
+          40% {
+            transform: translate(1px, -1px) rotate(1deg);
+          }
+
+          50% {
+            transform: translate(-1px, 2px) rotate(-1deg);
+          }
+
+          60% {
+            transform: translate(-3px, 1px) rotate(0deg);
+          }
+
+          70% {
+            transform: translate(3px, 1px) rotate(-1deg);
+          }
+
+          80% {
+            transform: translate(-1px, -1px) rotate(1deg);
+          }
+
+          90% {
+            transform: translate(1px, 2px) rotate(0deg);
+          }
+
+          100% {
+            transform: translate(1px, -2px) rotate(-1deg);
+          }
+        }
+      </style>
 
       <div class="upload-clip mt-5 col-6">
         <h5 class="">Movie Clip</h5>
-        <div class="row mb-3 d-flex">
-          <div class="col-3">
-            <label for="#" class="form-label">Movie Clip</label>
+        <div class="container" appDragDrop (fileDropped)="onDroppedClip($event)">
+          <input class="d-none" type="file" #clip (change)="videoInputEvent($event)" formControlName="videoClip">
+          <svg xmlns="http://www.w3.org/2000/svg" width="63" height="64" viewBox="0 0 63 64">
+            <g fill="#3B454F" fill-rule="nonzero">
+              <path
+                d="M42.656 15.135a1.953 1.953 0 0 1-1.391-.578L31.5 4.795l-9.765 9.762a1.97 1.97 0 1 1-2.785-2.785L30.106.616a1.97 1.97 0 0 1 2.785 0l11.157 11.156a1.97 1.97 0 0 1-1.392 3.363z" />
+              <path
+                d="M31.5 36.791a1.97 1.97 0 0 1-1.969-1.969V2.01a1.97 1.97 0 0 1 3.938 0v32.812a1.97 1.97 0 0 1-1.969 1.969z" />
+              <path
+                d="M55.781 63.041H7.22A7.225 7.225 0 0 1 0 55.822V41.385a4.599 4.599 0 0 1 4.594-4.594h7.234a4.567 4.567 0 0 1 4.402 3.276l2.814 9.382a.658.658 0 0 0 .628.467h23.656a.658.658 0 0 0 .628-.467l2.814-9.385a4.572 4.572 0 0 1 4.402-3.273h7.234A4.599 4.599 0 0 1 63 41.385v14.437a7.225 7.225 0 0 1-7.219 7.219zM4.594 40.729a.656.656 0 0 0-.657.656v14.437a3.286 3.286 0 0 0 3.282 3.282H55.78a3.286 3.286 0 0 0 3.282-3.282V41.385a.656.656 0 0 0-.657-.656h-7.234a.65.65 0 0 0-.628.467L47.73 50.58a4.628 4.628 0 0 1-4.402 3.274H19.672a4.567 4.567 0 0 1-4.402-3.276l-2.814-9.382a.65.65 0 0 0-.628-.467H4.594z" />
+            </g>
+          </svg>
+          <h3>Drag And Drop Movie Clip</h3>
+          <h3>OR</h3>
+          <label (click)="browseClip()">Browse Movie Clip</label>
+        </div>
+        <div class="clip-loadview">
+	      <div class="single-file" *ngIf="videoFile">
+          <div class="clip-icon" style="width: 50px">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">
+              <polygon style="fill:#EDEADA;" points="51.5,14 37.5,0 6.5,0 6.5,58 51.5,58 " />
+              <g>
+                <path style="fill:#CEC9AE;"
+                  d="M16.5,23h25c0.552,0,1-0.447,1-1s-0.448-1-1-1h-25c-0.552,0-1,0.447-1,1S15.948,23,16.5,23z" />
+                <path style="fill:#CEC9AE;"
+                  d="M16.5,15h10c0.552,0,1-0.447,1-1s-0.448-1-1-1h-10c-0.552,0-1,0.447-1,1S15.948,15,16.5,15z" />
+                <path style="fill:#CEC9AE;"
+                  d="M41.5,29h-25c-0.552,0-1,0.447-1,1s0.448,1,1,1h25c0.552,0,1-0.447,1-1S42.052,29,41.5,29z" />
+                <path style="fill:#CEC9AE;"
+                  d="M41.5,37h-25c-0.552,0-1,0.447-1,1s0.448,1,1,1h25c0.552,0,1-0.447,1-1S42.052,37,41.5,37z" />
+                <path style="fill:#CEC9AE;"
+                  d="M41.5,45h-25c-0.552,0-1,0.447-1,1s0.448,1,1,1h25c0.552,0,1-0.447,1-1S42.052,45,41.5,45z" />
+              </g>
+              <polygon style="fill:#CEC9AE;" points="37.5,0 37.5,14 51.5,14 " />
+            </svg>
           </div>
-          <div class="col-9 d-flex">
-            <input class="form-control" type="file" (change)="onSelectedVideo($event)" formControlName="videoClip">
-            <!--Validation--->
-            <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('required')">Movie clip file
-              is required.</div>
-            <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('invalidVideoType')">Invalid
-              video format. Only mp4, webm, and oog are acceptable.</div>
-            <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('invalidVideoSize')">Movie
-              clip size cannot be more than {{videoMaxSize/1048576}}MB.</div>
+          <div class="clip-details">
+            <h4 class="clip-name">{{videoFile.name}}</h4>
+            <p class="clip-size">{{ formatBytes(videoFile.size) }}</p>
+          </div>
+          <div class="upload-progress">
+            <app-progress [progress]="videoFile.progress"></app-progress>
+          </div>
+          <div class="actions">
+            <div class="delete" (click)="deleteClipFile()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18">
+                <path fill="#B1B1B1" fill-rule="nonzero"
+                  d="M1 16c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v10zm3.17-7.83a.996.996 0 0 1 1.41 0L7 9.59l1.42-1.42a.996.996 0 1 1 1.41 1.41L8.41 11l1.42 1.42a.996.996 0 1 1-1.41 1.41L7 12.41l-1.42 1.42a.996.996 0 1 1-1.41-1.41L5.59 11 4.17 9.58a.996.996 0 0 1 0-1.41zM10.5 1L9.79.29C9.61.11 9.35 0 9.09 0H4.91c-.26 0-.52.11-.7.29L3.5 1H1c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1h-2.5z" />
+              </svg>
+            </div>
+	        </div>
           </div>
         </div>
+        <div class="clip-validators">
+          <!--Validation--->
+          <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('required')">Movie clip file is required.</div>
+          <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('invalidVideoType')">Invalid video format. Only mp4, webm, and oog are acceptable.</div>
+          <div class="text-danger" *ngIf="submitted && validateForm['videoClip'].hasError('invalidVideoSize')">Movie clip size cannot be more than {{videoMaxSize/1048576}}MB.</div>
+        </div>
       </div>
-
     </div>
     <div class="row d-flex mt-5">
       <div class="text-center">

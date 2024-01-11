@@ -14,8 +14,7 @@ declare const sentenceCaseRegex: any;
 @Component({
   selector: 'app-movie-language',
   templateUrl: './movie-language.component.html',
-  styles: [
-  ]
+  styleUrls: ['./movie-language.component.css']
 })
 export class MovieLanguageComponent implements OnInit {
 

@@ -23,8 +23,7 @@ declare const sentenceCaseRegex: any;
 @Component({
   selector: 'app-movie-base-info',
   templateUrl: './movie-base-info.component.html',
-  styles: [
-  ]
+  styleUrls: ['./movie-base-info.component.css']
 })
 
 export class MovieBaseInfoComponent implements OnInit {

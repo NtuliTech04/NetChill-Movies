@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+
+/*** Movie Production ***/
+.custom-panel{
+  height: auto;
+  margin-left: 25%;
+  border: 1px solid #999;
+}
+.custom-panel .myPanel-heading,
+.custom-panel .myPanel-footer
+{
+  text-align: center;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #999;
+  padding: 10px;
+}
+
+.custom-panel .myPanel-body{
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 25%;
+  width: 50%;
+}
+
+.myPanel-body .alert-info{
+  color: #31708f;
+  border-color: #bce8f1;
+  background-color: #d9edf7;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.myPanel-body a.item-control{
+  float: right;
+  padding: 5px;
+}
+
+.custom-panel .myPanel-footer{
+  border-top: 1px solid #999;
+  border-bottom: none;
+}
+
+.myPanel-footer input.form-control{
+  margin-left: 12.5%;
+  margin-top: 20px;
+  font-size: 14px;
+  height: 30px;
+  width:75%;
+}
+
+.myPanel-footer .control-buttons{
+  margin: 20px 20px;
+}
+
+.control-buttons .btn{
+  font-size: 12px;
+}
+
+/*** //Movie Production ***/

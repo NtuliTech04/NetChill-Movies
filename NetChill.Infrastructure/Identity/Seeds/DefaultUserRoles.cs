@@ -1,5 +1,6 @@
 ﻿using NetChill.Infrastructure.Identity.Enums;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace NetChill.Infrastructure.Identity.Seeds
 {
@@ -7,10 +8,13 @@ namespace NetChill.Infrastructure.Identity.Seeds
     {
         public static async Task SeedUserRoles(RoleManager<IdentityRole> roleManager)
         {
-            await roleManager.CreateAsync(new IdentityRole(UserRoles.SuperAdmin.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(UserRoles.Moderator.ToString()));
-            await roleManager.CreateAsync(new IdentityRole(UserRoles.User.ToString()));
+            if (!roleManager.Roles.Any())
+            {
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.SuperAdmin.ToString()));
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin.ToString()));
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.Moderator.ToString()));
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.User.ToString()));
+            }
         }
     }
 }

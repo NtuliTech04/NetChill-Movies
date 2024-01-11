@@ -20,6 +20,7 @@ builder.Services.AddPresentationLayer();
 var app = builder.Build();
 
 
+//Database seeding upon application start
 using (IServiceScope? scope = app.Services.CreateScope())
 {
     var service = scope.ServiceProvider;
@@ -62,8 +63,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-//Configures Angular App Access by Whitelisting the URL
-app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+//Configures client app access by whitelisting its URL
+app.UseCors("CorsPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();

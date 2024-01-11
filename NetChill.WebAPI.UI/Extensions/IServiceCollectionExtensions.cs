@@ -8,8 +8,23 @@ namespace NetChill.WebAPI.UI.Extensions
         //Configures the dependencies defined in the Presentation layer. 
         public static void AddPresentationLayer(this IServiceCollection services)
         {
+            services.CorsPolicy();
             services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerService();
+        }
+
+
+        //Configures client app access by whitelisting its URL
+        public static void CorsPolicy(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", 
+                    policy => policy
+                        .WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
         }
 
         //Swagger API Configurations

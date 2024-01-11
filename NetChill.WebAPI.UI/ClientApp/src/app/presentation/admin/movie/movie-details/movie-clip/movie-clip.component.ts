@@ -9,8 +9,7 @@ import { MovieClipService } from 'src/app/shared/services/movie/movie-clip.servi
 @Component({
   selector: 'app-movie-clip',
   templateUrl: './movie-clip.component.html',
-  styles: [
-  ]
+  styleUrls: ['./movie-clip.component.css']
 })
 
 export class MovieClipComponent implements OnInit {

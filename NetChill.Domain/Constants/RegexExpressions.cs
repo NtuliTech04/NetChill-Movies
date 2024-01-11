@@ -6,7 +6,7 @@
         public const string TitleNumericCase = "[A-Z0-9][A-Za-z0-9]*(\\s[A-Z0-9][A-Za-z0-9]*)*$";
 
         //Sentence case text format
-        public const string SentenceCase = "[A-Z][a-zA-Z0-9',. -]*(\\s[a-zA-Z0-9',. -]+)*$";
+        public const string SentenceCase = "[A-Z][a-zA-Z0-9',. -:\"]*(\\s[a-zA-Z0-9',. -:\"]+)*$";
 
         //Proper case text format
         public const string ProperCase = "[A-Z][a-z]*(\\s[A-Z][a-z]*)*$";

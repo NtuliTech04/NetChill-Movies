@@ -8,8 +8,7 @@ import { MovieProductionService } from 'src/app/shared/services/movie/movie-prod
 @Component({
   selector: 'app-movie-production',
   templateUrl: './movie-production.component.html',
-  styles: [
-  ]
+  styleUrls: ['./movie-production.component.css']
 })
 
 

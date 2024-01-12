@@ -15,13 +15,13 @@ export class MovieGenreService {
 
   //Gets all moviegenres
   getAllGenres(): Observable<MovieGenre[]> {
-    let url = `${this.URL}/Genres/all-genres`;
+    let url = `${this.URL}/Genres/list`;
     return this.http.get<MovieGenre[]>(url);
   }
 
   //Create Movie Genre
 createGenre(data: MovieGenre): Observable<any> {
-  let url = `${this.URL}/Genres/create-genre`;
+  let url = `${this.URL}/Genres/create`;
   return this.http.post(url, data).pipe(catchError(this.errorHandler));
 }
 

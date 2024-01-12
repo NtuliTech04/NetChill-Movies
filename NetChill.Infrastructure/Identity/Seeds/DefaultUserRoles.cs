@@ -1,6 +1,5 @@
 ﻿using NetChill.Infrastructure.Identity.Enums;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace NetChill.Infrastructure.Identity.Seeds
 {

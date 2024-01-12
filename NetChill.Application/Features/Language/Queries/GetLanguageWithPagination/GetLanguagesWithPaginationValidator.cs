@@ -8,11 +8,11 @@ namespace NetChill.Application.Features.Language.Queries.GetLanguageWithPaginati
         {
             RuleFor(x => x.PageNumber)
                 .GreaterThanOrEqualTo(1)
-                .WithMessage("PageNumber at least greater than or equal to 1.");
+                .WithMessage("Page number must be greater than or equal to 1.");
 
             RuleFor(x => x.PageSize)
                 .GreaterThanOrEqualTo(1)
-                .WithMessage("PageSize at least greater than or equal to 1.");
+                .WithMessage("Page size must be greater than or equal to 1.");
         }
     }
 }

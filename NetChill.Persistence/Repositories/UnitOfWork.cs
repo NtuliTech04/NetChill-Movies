@@ -1,12 +1,8 @@
 ﻿using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Common;
 using NetChill.Persistence.Contexts;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NetChill.Persistence.Repositories
 {

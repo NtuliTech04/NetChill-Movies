@@ -8,7 +8,7 @@ using NetChill.Shared;
 
 namespace NetChill.Application.Features.Language.Queries.GetLanguageWithPagination
 {
-    //Not Yet Implemented In Genres Controller
+    //Not Yet Implemented In Languages Controller
     public record GetLanguagesWithPaginationQuery : IRequest<PaginatedResult<GetLanguagesWithPaginationDto>>
     {
         public int PageNumber { get; set; }

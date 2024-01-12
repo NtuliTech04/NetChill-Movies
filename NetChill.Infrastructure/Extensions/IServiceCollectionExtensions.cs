@@ -33,13 +33,14 @@ namespace NetChill.Infrastructure.Extensions
         }
 
 
+        //Sets configuration values in appsettings.json to the properties of value object classes
         private static void AddAppSettings(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<JWTValues>(configuration.GetSection("JWTValues"));
             services.Configure<EmailValues>(configuration.GetSection("EmailValues"));
         }
 
-
+        //Configure DI for Json Web Token Authentication
         private static void AddJWTAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(options =>

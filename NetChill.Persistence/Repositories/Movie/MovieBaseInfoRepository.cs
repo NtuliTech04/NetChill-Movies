@@ -35,7 +35,11 @@ namespace NetChill.Persistence.Repositories.Movie
         //Get movie title by Id
         public async Task<string> GetMovieTitle(Guid Id)
         {
-            var movie =  await _repository.Entities.FirstOrDefaultAsync(x => x.MovieId == Id);
+            var movie =  await _repository
+                        .Entities
+                        .FirstOrDefaultAsync(x => x
+                        .MovieId == Id);
+
             return movie?.Title;
         }
     }

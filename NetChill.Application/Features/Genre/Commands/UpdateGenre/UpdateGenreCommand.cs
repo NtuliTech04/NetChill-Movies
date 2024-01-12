@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using NetChill.Application.Common.Exceptions;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Domain.Events.Genre;
@@ -32,16 +34,24 @@ namespace NetChill.Application.Features.Genre.Commands.UpdateGenre
 
             if (genre != null)
             {
-                genre.IntId = command.GenreId;
-                genre.GenreName = command.GenreName;
-                genre.GenreDescription = command.GenreDescription;
+                try
+                {
+                    genre.IntId = command.GenreId;
+                    genre.GenreName = command.GenreName;
+                    genre.GenreDescription = command.GenreDescription;
 
-                await _unitOfWork.Repository<MovieGenre>().UpdateAsyncWithIntId(genre);
-                genre.AddDomainEvent(new GenreUpdatedEvent(genre));
+                    await _unitOfWork.Repository<MovieGenre>().UpdateAsyncWithIntId(genre);
+                    genre.AddDomainEvent(new GenreUpdatedEvent(genre));
 
-                await _unitOfWork.Save(cancellationToken);
+                    await _unitOfWork.Save(cancellationToken);
 
-                return await Result<int>.SuccessAsync(genre.IntId, "Genre Updated Successfully");
+                    return await Result<int>.SuccessAsync(genre.IntId, "Genre Updated Successfully");
+
+                }
+                catch (Exception ex)
+                {
+                    throw new BadRequestException(ConstantText.Error520, ex);
+                }
             }
             else
             {

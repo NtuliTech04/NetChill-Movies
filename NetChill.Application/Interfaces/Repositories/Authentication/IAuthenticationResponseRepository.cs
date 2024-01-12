@@ -7,15 +7,14 @@ namespace NetChill.Application.Interfaces.Repositories.Authentication
     public interface IAuthenticationResponseRepository
     {
         Task<AuthenticationResponse> SignUpAsync(SignUpDto signUpDto, string origin);
-
-        Task<AuthenticationResponse> LoginAsync(LoginDto loginDto);
+        Task<string> ConfirmEmailAsync(string userId, string code);
 
         Task<string> AssignRolesAsync(UserRoleDto userRolesDto);
+        
+        Task<AuthenticationResponse> LoginAsync(LoginDto loginDto);
 
         Task<AuthenticationResponse> RefreshTokenCheckAsync(string token);
 
         Task<bool> RevokeTokenAsync(string token);
-
-        Task<string> ConfirmEmailAsync(string userId, string code);
     }
 }

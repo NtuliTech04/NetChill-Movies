@@ -27,7 +27,7 @@ namespace NetChill.Application.Features.Genre.Queries.GetAllGenres
                 .ProjectTo<GetAllGenresDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return await Result<List<GetAllGenresDto>>.SuccessAsync(genres);
+            return await Result<List<GetAllGenresDto>>.SuccessAsync(genres, "Genres Retrieved Successfully.");
         }
     }
 }

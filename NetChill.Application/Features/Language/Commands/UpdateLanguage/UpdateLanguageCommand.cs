@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
+using NetChill.Application.Common.Exceptions;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
+using NetChill.Domain.Events.Genre;
 using NetChill.Domain.Events.Language;
 using NetChill.Shared;
 
@@ -32,16 +35,23 @@ namespace NetChill.Application.Features.Language.Commands.UpdateLanguage
 
             if (language != null)
             {
-                language.IntId = command.LanguageId;
-                language.SpokenLanguage = command.SpokenLanguage;
-                language.LanguageNotes = command.LanguageNotes;
+                try
+                {
+                    language.IntId = command.LanguageId;
+                    language.SpokenLanguage = command.SpokenLanguage;
+                    language.LanguageNotes = command.LanguageNotes;
 
-                await _unitOfWork.Repository<MovieLanguage>().UpdateAsyncWithIntId(language);
-                language.AddDomainEvent(new LanguageUpdatedEvent(language));
+                    await _unitOfWork.Repository<MovieLanguage>().UpdateAsyncWithIntId(language);
+                    language.AddDomainEvent(new LanguageUpdatedEvent(language));
 
-                await _unitOfWork.Save(cancellationToken);
+                    await _unitOfWork.Save(cancellationToken);
 
-                return await Result<int>.SuccessAsync(language.IntId, "Language Updated Successfully.");
+                    return await Result<int>.SuccessAsync(language.IntId, "Language Updated Successfully.");
+                }
+                catch (Exception ex)
+                {
+                    throw new BadRequestException(ConstantText.Error520, ex);
+                }
             }
             else 
             { 

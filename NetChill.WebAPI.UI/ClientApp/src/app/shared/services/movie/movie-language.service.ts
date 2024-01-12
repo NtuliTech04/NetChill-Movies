@@ -16,14 +16,14 @@ export class MovieLanguageService {
 
   //Gets all moviegenres
   getAllLanguages(): Observable<MovieLanguage[]> {
-    let url = `${this.URL}/Languages/all-languages`;
+    let url = `${this.URL}/Languages/list`;
     return this.http.get<MovieLanguage[]>(url);
   }
 
 
   //Create Movie Genre
   createLanguage(data: MovieLanguage): Observable<any> {
-    let url = `${this.URL}/Languages/create-language`;
+    let url = `${this.URL}/Languages/create`;
     return this.http.post(url, data).pipe(catchError(this.errorHandler));
   }
 

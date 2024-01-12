@@ -27,7 +27,7 @@ namespace NetChill.Application.Features.Language.Queries.GetAllLanguages
                 .ProjectTo<GetAllLanguagesDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return await Result<List<GetAllLanguagesDto>>.SuccessAsync(languages);
+            return await Result<List<GetAllLanguagesDto>>.SuccessAsync(languages, "Languages Retrieved Successfully.");
         }
     }
 }

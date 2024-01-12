@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Common.Mappings;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Domain.Events.Genre;
@@ -26,18 +28,25 @@ namespace NetChill.Application.Features.Genre.Commands.CreateGenre
 
         public async Task<Result<int>> Handle(CreateGenreCommand command, CancellationToken cancellationToken)
         {
-            var genre = new MovieGenre()
+            try
             {
-                GenreName = command.GenreName,
-                GenreDescription = command.GenreDescription
-            };
+                var genre = new MovieGenre()
+                {
+                    GenreName = command.GenreName,
+                    GenreDescription = command.GenreDescription
+                };
 
-            await _unitOfWork.Repository<MovieGenre>().InsertAsync(genre);
-            genre.AddDomainEvent(new GenreCreatedEvent(genre));
+                await _unitOfWork.Repository<MovieGenre>().InsertAsync(genre);
+                genre.AddDomainEvent(new GenreCreatedEvent(genre));
 
-            await _unitOfWork.Save(cancellationToken);
+                await _unitOfWork.Save(cancellationToken);
 
-            return await Result<int>.SuccessAsync(genre.GenreId, "Genre Created Successfully.");
+                return await Result<int>.SuccessAsync(genre.GenreId, "Genre Created Successfully.");
+            }
+            catch (Exception ex)
+            {
+                throw new BadRequestException(ConstantText.Error520, ex);
+            }
         }
     }
 }

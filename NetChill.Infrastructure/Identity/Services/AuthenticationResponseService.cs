@@ -154,8 +154,8 @@ namespace NetChill.Infrastructure.Identity.Services
             await _emailSender.SendEmailAsync(new EmailRequestDto()
             {
                 EmailTo = user.Email,
-                Body = $"Please confirm your account by clicking on this link: <a href=\"{verificationUri}\">Verify Email<a/>",
-                Subject = "User Email Verification"
+                Subject = "User Email Verification",
+                Body = $"Please confirm your account by clicking on this link: <a href=\"{verificationUri}\">Verify Email<a/>"
             });
             #endregion
 

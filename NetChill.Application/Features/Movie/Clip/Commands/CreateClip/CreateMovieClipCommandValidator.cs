@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Http;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Domain.Constants;
 
 namespace NetChill.Application.Features.Movie.Clip.Commands.CreateClip

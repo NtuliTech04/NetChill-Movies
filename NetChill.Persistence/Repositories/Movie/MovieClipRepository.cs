@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using NetChill.Domain.Entities.Movie;
-using NetChill.Application.Common.FileInfo;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Application.Common.Exceptions;
 using Microsoft.EntityFrameworkCore;
+using NetChill.Application.Features.Movie.Accessories;
 
 namespace NetChill.Persistence.Repositories.Movie
 {
@@ -23,11 +23,11 @@ namespace NetChill.Persistence.Repositories.Movie
 
         //Custom methods defined within the respective repository as follows. 
 
+        //Gets and sets the movie key to use within the uploading methods
+        public Guid MovieRef { get; set; } 
 
-        public Guid MovieRef { get; set; } //Gets and sets the movie key to use within the uploading methods
 
-
-        //Checks whether the MovieClip object has already been reference by the same movie (MovieRef) or not
+        //Checks whether the MovieClip entity has already been reference by the same movie (MovieRef) or not
         public async Task<bool> CheckMovieRefExistence()
         {
             var isExist = await _clipRepository.Entities.FirstOrDefaultAsync(x => x.MovieRef == MovieRef);
@@ -64,12 +64,12 @@ namespace NetChill.Persistence.Repositories.Movie
                 var posterName = MovieTitle + "_" + DateTime.Now.Ticks.ToString() + fileInfo.Extension;
 
                 //Passes movie title to create a dir specific to the movie and gets the full poster path
-                var fullPosterPath = FileDetails.GetFullPath(posterName, MovieTitle);
+                var fullPosterPath = FileDirInfo.GetFullPath(posterName, MovieTitle);
 
                 //Passes movie title, gets the local poster file and save to the database
-                var localPosterPath = FileDetails.GetLocalPath(posterName, MovieTitle);
+                var localPosterPath = FileDirInfo.GetLocalPath(posterName, MovieTitle);
 
-                //Uploads files to the newly created dir
+                //Saves files to the newly created dir
                 using (var fileStream = new FileStream(fullPosterPath, FileMode.Create))
                 {
                     await iformFile.CopyToAsync(fileStream);
@@ -97,13 +97,13 @@ namespace NetChill.Persistence.Repositories.Movie
                 var clipName = MovieTitle + "_" + DateTime.Now.Ticks.ToString() + fileInfo.Extension;
 
                 //Passes movie title to create a dir specific to the movie and gets the full clip path
-                var getClipPath = FileDetails.GetFullPath(clipName, MovieTitle);
+                var getClipPath = FileDirInfo.GetFullPath(clipName, MovieTitle);
 
                 //Passes movie title, gets the local clip file and save to the database
-                var localClipPath = FileDetails.GetLocalPath(clipName, MovieTitle);
+                var localClipPath = FileDirInfo.GetLocalPath(clipName, MovieTitle);
 
 
-                //Uploads files to the newly created dir
+                //Saves files to the newly created dir
                 using (var fileStream = new FileStream(getClipPath, FileMode.Create))
                 {
                     await iformFile.CopyToAsync(fileStream);

@@ -3,9 +3,9 @@ using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Application.Common.Exceptions;
-using NetChill.Application.Features.Movie;
 using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using NetChill.Application.Features.Movie.Accessories;
 
 namespace NetChill.Persistence.Repositories.Movie
 {

@@ -7,6 +7,7 @@ using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Domain.Events.Movie.Production;
 using NetChill.Shared;
+using NetChill.Application.Features.Movie.Accessories;
 
 namespace NetChill.Application.Features.Movie.Production.Commands.CreateProducuction
 {

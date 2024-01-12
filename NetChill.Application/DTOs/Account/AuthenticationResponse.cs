@@ -14,6 +14,7 @@ namespace NetChill.Application.DTOs.Account
 
         [JsonIgnore]
         public string? RefreshToken { get; set; }
+
         public DateTime RefreshTokenExpiration { get; set; }
     }
 }

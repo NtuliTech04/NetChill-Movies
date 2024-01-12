@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using NetChill.Application.Common.Exceptions;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Shared;
@@ -35,8 +37,25 @@ namespace NetChill.Application.Features.Genre.Queries.GetGenreById
         public async Task<Result<GetGenreByIdDto>> Handle(GetGenreByIdQuery query, CancellationToken cancellationToken)
         {
             var entity = await _unitOfWork.Repository<MovieGenre>().GetByIntIdAsync(query.GenreId);
-            var genre = _mapper.Map<GetGenreByIdDto>(entity);
-            return await Result<GetGenreByIdDto>.SuccessAsync(genre);
+
+            if (entity != null)
+            {
+                try
+                {
+                    var genre = _mapper.Map<GetGenreByIdDto>(entity);
+                    return await Result<GetGenreByIdDto>.SuccessAsync(genre, "Genre Retrieved Successfully.");
+                }
+                catch (Exception ex)
+                {
+                    throw new BadRequestException(ConstantText.Error520, ex);
+                }
+            }
+            else
+            {
+                return await Result<GetGenreByIdDto>.FailureAsync("Genre Not Found.");
+            }
+
+
         }
     }
 }

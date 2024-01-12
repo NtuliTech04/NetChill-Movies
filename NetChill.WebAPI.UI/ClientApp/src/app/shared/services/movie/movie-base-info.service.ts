@@ -19,7 +19,7 @@ export class MovieBaseInfoService {
 
   //Creates movie base info
   addBaseInfo(data: MovieBaseInfo): Observable<any> {
-    let url = `${this.URL}/Movies/base-info`;
+    let url = `${this.URL}/Movies/info`;
     return this.http.post(url, data).pipe(catchError(this.errorHandler));
   }
 

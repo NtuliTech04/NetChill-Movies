@@ -3,12 +3,12 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Common.Mappings;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Domain.Events.Movie.Clip;
 using NetChill.Shared;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NetChill.Application.Features.Movie.Clip.Commands.CreateClip
 {

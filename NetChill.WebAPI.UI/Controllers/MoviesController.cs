@@ -18,8 +18,7 @@ namespace NetChill.WebAPI.UI.Controllers
 
 
         //Create Movie BaseInfo Action Method
-        [HttpPost]
-        [Route("base-info")]
+        [HttpPost, Route("info")]
         public async Task<ActionResult<Result<Guid>>> AddMovieBaseInfo(CreateBaseInfoCommand command)
         {
             return await _mediator.Send(command);
@@ -27,8 +26,7 @@ namespace NetChill.WebAPI.UI.Controllers
 
 
         //Create Movie Production Action Method
-        [HttpPost]
-        [Route("production/{id}")]
+        [HttpPost, Route("production/{id}")]
         public async Task<ActionResult<Result<Guid>>> AddMovieProduction(Guid id, CreateMovieProductionCommand command)
         {
             if (id != command.MovieRef)
@@ -41,8 +39,7 @@ namespace NetChill.WebAPI.UI.Controllers
 
 
         //Upload Movie Files Action Method
-        [HttpPost]
-        [Route("mediafiles/{id}")]
+        [HttpPost, Route("mediafiles/{id}")]
         //[RequestSizeLimit(50_000_000)]
         [DisableRequestSizeLimit]
         public async Task<ActionResult<Result<Guid>>> UploadMovieFiles(Guid id, [FromForm] CreateMovieClipCommand command)

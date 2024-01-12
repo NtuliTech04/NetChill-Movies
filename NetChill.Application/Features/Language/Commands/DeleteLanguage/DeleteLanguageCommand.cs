@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Common.Mappings;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Domain.Events.Language;
@@ -41,12 +43,19 @@ namespace NetChill.Application.Features.Language.Commands.DeleteLanguage
 
             if (language != null)
             {
-                await _unitOfWork.Repository<MovieLanguage>().DeleteAsync(language);
-                language.AddDomainEvent(new LanguageDeletedEvent(language));
+                try
+                {
+                    await _unitOfWork.Repository<MovieLanguage>().DeleteAsync(language);
+                    language.AddDomainEvent(new LanguageDeletedEvent(language));
 
-                await _unitOfWork.Save(cancellationToken);
+                    await _unitOfWork.Save(cancellationToken);
 
-                return await Result<int>.SuccessAsync(language.LanguageId, "Language Deleted Successfully.");
+                    return await Result<int>.SuccessAsync(language.LanguageId, "Language Deleted Successfully.");
+                }
+                catch (Exception ex)
+                {
+                    throw new BadRequestException(ConstantText.Error520, ex);
+                }
             }
             else
             {

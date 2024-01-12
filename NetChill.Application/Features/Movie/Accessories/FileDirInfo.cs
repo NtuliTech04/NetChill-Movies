@@ -1,10 +1,10 @@
-﻿namespace NetChill.Application.Common.FileInfo
+﻿namespace NetChill.Application.Features.Movie.Accessories
 {
-    public static class FileDetails
+    public static class FileDirInfo
     {
         public static string GetCurrentDirectory()
         {
-            return Directory.GetCurrentDirectory(); 
+            return Directory.GetCurrentDirectory();
         }
 
         //Uses movie title to create a dir specific to the movie and save filestream
@@ -17,7 +17,7 @@
             }
             return result;
         }
-        
+
 
         //Uses movie title to create a local path to save to the database
         public static string GetContentDirectoryLocalPath(string movieTitle)
@@ -30,8 +30,8 @@
             return result;
         }
 
-        
-        //Gets the full file path
+
+        //Gets the full file path from the computer's drive
         public static string GetFullPath(string FileName, string movieTitle)
         {
             var fullContentDir = GetContentDirectoryFullPath(movieTitle);
@@ -39,7 +39,7 @@
         }
 
 
-        //Gets the local path
+        //Gets the local path within application files
         public static string GetLocalPath(string FileName, string movieTitle)
         {
             var serverContentDir = GetContentDirectoryLocalPath(movieTitle);

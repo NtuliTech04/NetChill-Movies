@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Common.Mappings;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;

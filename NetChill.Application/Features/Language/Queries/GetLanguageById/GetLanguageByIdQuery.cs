@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using NetChill.Application.Common.Exceptions;
+using NetChill.Application.Features.Genre.Queries.GetGenreById;
+using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Shared;
@@ -35,8 +38,24 @@ namespace NetChill.Application.Features.Language.Queries.GetLanguageById
         public async Task<Result<GetLanguageByIdDto>> Handle(GetLanguageByIdQuery query, CancellationToken cancellationToken)
         {
             var entity = await _unitOfWork.Repository<MovieLanguage>().GetByIntIdAsync(query.LanguageId);
-            var language = _mapper.Map<GetLanguageByIdDto>(entity);
-            return await Result<GetLanguageByIdDto>.SuccessAsync(language);
+
+            if (entity != null)
+            {
+                try
+                {
+                    var language = _mapper.Map<GetLanguageByIdDto>(entity);
+                    return await Result<GetLanguageByIdDto>.SuccessAsync(language, "Language Retrieved Successfully.");
+                }
+                catch (Exception ex)
+                {
+                    throw new BadRequestException(ConstantText.Error520, ex);
+                }
+            }
+            else
+            {
+                return await Result<GetLanguageByIdDto>.FailureAsync("Language Not Found.");
+            }
+
         }
     }
 }

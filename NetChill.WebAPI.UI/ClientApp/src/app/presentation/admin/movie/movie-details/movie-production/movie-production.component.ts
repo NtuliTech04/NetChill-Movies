@@ -75,7 +75,7 @@ export class MovieProductionComponent implements OnInit {
         }
     }
     else{
-      var exist = (<HTMLInputElement>document.getElementById("isExist"));
+      var exist = (<HTMLDivElement>document.getElementById("isExist"));
 
       if (this.newItem != ""){
         this.count = 0;
@@ -109,7 +109,7 @@ EditItem(i: number) {
 
 //Update array item
 UpdateItem() {
-  var exist = (<HTMLInputElement>document.getElementById('isExist'));
+  var exist = (<HTMLDivElement>document.getElementById('isExist'));
   let pos = this.updatedItem;
   this.count = 0;
 

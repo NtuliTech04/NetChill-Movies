@@ -50,6 +50,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.css",
               "src/assets/css/style.css",
               "src/assets/css/bootstrap.min.css",
               "node_modules/ngx-toastr/toastr.css",
@@ -124,6 +125,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.css",
               "src/assets/css/style.css",
               "src/assets/css/bootstrap.min.css",
               "node_modules/ngx-toastr/toastr.css",

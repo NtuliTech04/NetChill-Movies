@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using NetChill.Domain.Constants;
+using NetChill.Domain.Global;
 
 namespace NetChill.Application.Features.Language.Commands.UpdateLanguage
 {

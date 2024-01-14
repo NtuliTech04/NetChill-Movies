@@ -20,13 +20,10 @@
   <ItemGroup>
     <Folder Include="Features\Movie\Clip\Commands\DeleteClip\" />
     <Folder Include="Features\Movie\Clip\Commands\UpdateClip\" />
-    <Folder Include="Features\Movie\Clip\Queries\" />
     <Folder Include="Features\Movie\BaseInfo\Commands\DeleteBaseInfo\" />
     <Folder Include="Features\Movie\BaseInfo\Commands\UpdateBaseInfo\" />
-    <Folder Include="Features\Movie\BaseInfo\Queries\" />
     <Folder Include="Features\Movie\Production\Commands\DeleteProducuction\" />
     <Folder Include="Features\Movie\Production\Commands\UpdateProducuction\" />
-    <Folder Include="Features\Movie\Production\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

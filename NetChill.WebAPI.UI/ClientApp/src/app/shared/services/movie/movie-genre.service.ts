@@ -13,13 +13,13 @@ export class MovieGenreService {
 
   constructor(private http: HttpClient) { }
 
-  //Gets all moviegenres
+  //Gets all movieg enres
   getAllGenres(): Observable<MovieGenre[]> {
     let url = `${this.URL}/Genres/list`;
     return this.http.get<MovieGenre[]>(url);
   }
 
-  //Create Movie Genre
+  //Create movie genre
 createGenre(data: MovieGenre): Observable<any> {
   let url = `${this.URL}/Genres/create`;
   return this.http.post(url, data).pipe(catchError(this.errorHandler));

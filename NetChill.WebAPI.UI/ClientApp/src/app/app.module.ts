@@ -6,6 +6,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +20,6 @@ import { MovieClipComponent } from './presentation/admin/movie/movie-details/mov
 import { MovieDetailsComponent } from './presentation/admin/movie/movie-details/movie-details.component';
 import { MovieGenreComponent } from './presentation/admin/common/movie-genre/movie-genre.component';
 import { MovieLanguageComponent } from './presentation/admin/common/movie-language/movie-language.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { MovieBaseInfoComponent } from './presentation/admin/movie/movie-details/movie-base-info/movie-base-info.component';
 import { MovieBaseInfoService } from './shared/services/movie/movie-base-info.service';
 import { MovieGenreService } from './shared/services/movie/movie-genre.service';

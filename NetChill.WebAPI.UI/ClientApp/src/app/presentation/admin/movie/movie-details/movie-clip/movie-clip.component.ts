@@ -25,12 +25,12 @@ export class MovieClipComponent implements OnInit {
   //Image file properties
   posterFile: any;
   posterPreview: any;
-  imageMaxSize: number = 2097152;
+  imageMaxSize: number = 2097152; //2MB
   imageAllowedTypes: string[] = ['image/png', 'image/jpeg'];
 
   //Video file properties
   videoFile: any;
-  videoMaxSize: number = 26214400;
+  videoMaxSize: number = 26214400; //25MB
   videoAllowedTypes: string[] = ['video/mp4','video/webm','video/ogg'];
 
 
@@ -74,10 +74,10 @@ export class MovieClipComponent implements OnInit {
 
 
   /*** Movie Poster ***/
+
   //If button is clicked the input is also clicked
   browsePoster(){
     this.posterInput.nativeElement.click();
-    console.log(this.clipInput);
   }
 
   //Poster file drop handler
@@ -140,10 +140,12 @@ export class MovieClipComponent implements OnInit {
         }
       }
     };
+
   /*** //Movie Poster ***/
 
 
   /*** Movie Clip ***/
+  
   //If button is clicked the input is also clicked
   browseClip(){
     this.clipInput.nativeElement.click();

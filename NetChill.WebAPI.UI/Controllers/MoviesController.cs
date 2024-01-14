@@ -4,6 +4,9 @@ using NetChill.Application.Features.Movie.Clip.Commands.CreateClip;
 using NetChill.Application.Features.Movie.BaseInfo.Commands.CreateInfo;
 using NetChill.Application.Features.Movie.Production.Commands.CreateProducuction;
 using NetChill.Shared;
+using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllBaseInfo;
+using NetChill.Application.Features.Movie.Production.Queries.GetAllProduction;
+using NetChill.Application.Features.Movie.Clip.Queries.GetAllMovieClips;
 
 namespace NetChill.WebAPI.UI.Controllers
 {
@@ -16,8 +19,34 @@ namespace NetChill.WebAPI.UI.Controllers
             _mediator = mediator;
         }
 
+        #region List Action Methods
 
-        //Create Movie BaseInfo Action Method
+        //List Movie BaseInfoes
+        [HttpGet, Route("info/list")]
+        public async Task<ActionResult<Result<List<GetAllBaseInfoDto>>>> ListMovieBaseInfoes()
+        {
+            return await _mediator.Send(new GetAllBaseInfoQuery());
+        }
+
+        //List Movie Productions
+        [HttpGet, Route("production/list")]
+        public async Task<ActionResult<Result<List<GetAllProductionDto>>>> ListMovieProductions()
+        {
+            return await _mediator.Send(new GetAllProductionQuery());
+        }
+
+        //List Movie Files
+        [HttpGet, Route("mediafiles/list")]
+        public async Task<ActionResult<Result<List<GetAllMovieClipsDto>>>> ListMovieFiles()
+        {
+            return await _mediator.Send(new GetAllMovieClipsQuery());
+        }
+
+        #endregion
+
+        #region Create Action Methods
+
+        //Create Movie BaseInfo
         [HttpPost, Route("info")]
         public async Task<ActionResult<Result<Guid>>> AddMovieBaseInfo(CreateBaseInfoCommand command)
         {
@@ -25,7 +54,7 @@ namespace NetChill.WebAPI.UI.Controllers
         }
 
 
-        //Create Movie Production Action Method
+        //Create Movie Production
         [HttpPost, Route("production/{id}")]
         public async Task<ActionResult<Result<Guid>>> AddMovieProduction(Guid id, CreateMovieProductionCommand command)
         {
@@ -38,7 +67,7 @@ namespace NetChill.WebAPI.UI.Controllers
         }
 
 
-        //Upload Movie Files Action Method
+        //Create/Upload Movie Files
         [HttpPost, Route("mediafiles/{id}")]
         //[RequestSizeLimit(50_000_000)]
         [DisableRequestSizeLimit]
@@ -51,5 +80,19 @@ namespace NetChill.WebAPI.UI.Controllers
 
             return await _mediator.Send(command);
         }
+
+        #endregion
+
+        #region Read Action Methods
+
+        #endregion
+
+        #region Update Action Methods
+
+        #endregion
+
+        #region Delete Action Methods
+
+        #endregion
     }
 }

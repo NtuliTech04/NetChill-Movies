@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,12 +23,13 @@ import { MovieGenreComponent } from './presentation/admin/common/movie-genre/mov
 import { MovieLanguageComponent } from './presentation/admin/common/movie-language/movie-language.component';
 import { MovieBaseInfoComponent } from './presentation/admin/movie/movie-details/movie-base-info/movie-base-info.component';
 import { MovieBaseInfoService } from './shared/services/movie/movie-base-info.service';
-import { MovieGenreService } from './shared/services/movie/movie-genre.service';
-import { MovieLanguageService } from './shared/services/movie/movie-language.service';
+import { MovieGenreService } from './shared/services/movie/accessories/movie-genre.service';
+import { MovieLanguageService } from './shared/services/movie/accessories/movie-language.service';
 import { MovieProductionService } from './shared/services/movie/movie-production.service';
 import { MovieClipService } from './shared/services/movie/movie-clip.service';
 import { DragDropDirective } from './shared/directives/drag-drop.directive';
 import { ProgressComponent } from './presentation/admin/movie/movie-details/movie-clip/progress/progress.component';
+import { SelectedMovieComponent } from './presentation/user/streaming/selected-movie/selected-movie.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ProgressComponent } from './presentation/admin/movie/movie-details/movi
     MovieGenreComponent,
     MovieLanguageComponent,
     DragDropDirective,
-    ProgressComponent
+    ProgressComponent,
+    SelectedMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { ProgressComponent } from './presentation/admin/movie/movie-details/movi
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    CarouselModule
   ],
   providers: [
     {

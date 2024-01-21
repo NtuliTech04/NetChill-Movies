@@ -8,6 +8,7 @@ import { MovieGenreComponent } from './presentation/admin/common/movie-genre/mov
 import { MovieLanguageComponent } from './presentation/admin/common/movie-language/movie-language.component';
 import { MovieProductionComponent } from './presentation/admin/movie/movie-details/movie-production/movie-production.component';
 import { MovieClipComponent } from './presentation/admin/movie/movie-details/movie-clip/movie-clip.component';
+import { SelectedMovieComponent } from './presentation/user/streaming/selected-movie/selected-movie.component';
 
 const routes: Routes = [
   //User Routes
@@ -26,6 +27,7 @@ const routes: Routes = [
               import('./shared/routing-modules/user/user.module')
               .then(m=>m.UserModule)
       },
+      { path: 'SelectedMovie/:id', component: SelectedMovieComponent }
     ]
   },
 

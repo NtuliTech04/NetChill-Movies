@@ -2,7 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { MovieGenreService } from 'src/app/shared/services/movie/movie-genre.service';
+import { MovieGenreService } from 'src/app/shared/services/movie/accessories/movie-genre.service';
 
 
 //Declares variables & functions from script file

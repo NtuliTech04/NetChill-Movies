@@ -1,4 +1,7 @@
+import { Guid } from "guid-typescript";
+
 export class MovieBaseInfo {
+  movieId: Guid;
   title: string;
   genre: string;
   description: string;
@@ -6,4 +9,5 @@ export class MovieBaseInfo {
   isFeatured: boolean;
   yearReleased: number;
   availableFrom: Date;
+  avgRating: number;
 }

@@ -1,2 +1,517 @@
-<p>netchill-home works!</p>
+<div class="chill-home">
+    <div class="mini-banner">
+        <nav class="sorting-nav">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4">
+                        <ul class="responsive-tabs">
+                            <li>NetChill Movie Streaming Website</li>
+                            <!-- <li>Results: >>>
+                                <span class="link-info">
+                                    Popular Movies
+                                </span>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="col-8 text-end">
+                        <ul class="responsive-tabs">
+                            <li><a href="#">A-Z</a></li>
+                            <li><a href="#">Genre</a></li>
+                            <li><a href="#">Recent</a></li>
+                            <li><a href="#">Popular</a></li>
+                            <li><a href="#">Year</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav> 
+    </div>
+    <div class="movies-content container-fluid">
+        <div class="movies-content-heading">
+            <h3>Upcoming <span>Movies</span></h3>
+        </div>
+        <div class="upcoming-movies-slider">
+            <div class="row">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a href="{{'#/SelectedMovie/' + id}}" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/Sixty Minutes.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/The Covenant.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/Troy Movie Poster.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/Furioza.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/The Creator.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/No Hard Feelings.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                                <div class="movie-poster upcoming">
+                                    <img title="Movie Title" src="./../../../../assets/images/Troy Movie Poster.jpg" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">Guy Ritchie's - The Covenant</p>
+                                    <div class="other-info">
+                                        <span class="release-info">2023</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> May</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+        <div class="movies-content-heading">
+            <h3>Latest <span>Movies</span></h3>
+        </div>
+        <div class="new-movies">
+            <div class="row">
+                    <div class="col-2 movie-item hvr-sweep-img">
+                        <a href="{{'#/SelectedMovie/' + id}}" class="movie-details">
+                            <div class="movie-poster">
+                                <img title="Movie Title" src="./../../../../assets/images/The Covenant.jpg" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">Guy Ritchie's - The Covenant</p>
+                                <div class="other-info">
+                                    <span class="release-info">2023</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-2 movie-item hvr-sweep-img">
+                        <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                            <div class="movie-poster">
+                                <img title="Movie Title" src="./../../../../assets/images/Furioza.jpg" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">Guy Ritchie's - The Covenant</p>
+                                <div class="other-info">
+                                    <span class="release-info">2023</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-2 movie-item hvr-sweep-img">
+                        <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                            <div class="movie-poster">
+                                <img title="Movie Title" src="./../../../../assets/images/No Hard Feelings.jpg" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">Guy Ritchie's - The Covenant</p>
+                                <div class="other-info">
+                                    <span class="release-info">2023</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-2 movie-item hvr-sweep-img">
+                        <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                            <div class="movie-poster">
+                                <img title="Movie Title" src="./../../../../assets/images/Sixty Minutes.jpg" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">Guy Ritchie's - The Covenant</p>
+                                <div class="other-info">
+                                    <span class="release-info">2023</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-2 movie-item hvr-sweep-img">
+                        <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                            <div class="movie-poster">
+                                <img title="Movie Title" src="./../../../../assets/images/The Creator.jpg" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">Guy Ritchie's - The Covenant</p>
+                                <div class="other-info">
+                                    <span class="release-info">2023</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-2 movie-item hvr-sweep-img">
+                        <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                            <div class="movie-poster">
+                                <img title="Movie Title" src="./../../../../assets/images/Troy Movie Poster.jpg" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">Guy Ritchie's - The Covenant</p>
+                                <div class="other-info">
+                                    <span class="release-info">2023</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <div class="col-2 movie-item hvr-sweep-img">
+                    <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                        <div class="movie-poster">
+                            <img title="Movie Title" src="./../../../../assets/images/The Covenant.jpg" alt="">
+                            <div class="play-icon">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <p class="title">Guy Ritchie's - The Covenant</p>
+                            <div class="other-info">
+                                <span class="release-info">2023</span>
+                                <span class="duration-info">
+                                    <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2 movie-item hvr-sweep-img">
+                    <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                        <div class="movie-poster">
+                            <img title="Movie Title" src="./../../../../assets/images/Furioza.jpg" alt="">
+                            <div class="play-icon">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <p class="title">Guy Ritchie's - The Covenant</p>
+                            <div class="other-info">
+                                <span class="release-info">2023</span>
+                                <span class="duration-info">
+                                    <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2 movie-item hvr-sweep-img">
+                    <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                        <div class="movie-poster">
+                            <img title="Movie Title" src="./../../../../assets/images/No Hard Feelings.jpg" alt="">
+                            <div class="play-icon">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <p class="title">Guy Ritchie's - The Covenant</p>
+                            <div class="other-info">
+                                <span class="release-info">2023</span>
+                                <span class="duration-info">
+                                    <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2 movie-item hvr-sweep-img">
+                    <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                        <div class="movie-poster">
+                            <img title="Movie Title" src="./../../../../assets/images/Sixty Minutes.jpg" alt="">
+                            <div class="play-icon">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <p class="title">Guy Ritchie's - The Covenant</p>
+                            <div class="other-info">
+                                <span class="release-info">2023</span>
+                                <span class="duration-info">
+                                    <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2 movie-item hvr-sweep-img">
+                    <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                        <div class="movie-poster">
+                            <img title="Movie Title" src="./../../../../assets/images/The Creator.jpg" alt="">
+                            <div class="play-icon">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <p class="title">Guy Ritchie's - The Covenant</p>
+                            <div class="other-info">
+                                <span class="release-info">2023</span>
+                                <span class="duration-info">
+                                    <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2 movie-item hvr-sweep-img">
+                    <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                        <div class="movie-poster">
+                            <img title="Movie Title" src="./../../../../assets/images/Troy Movie Poster.jpg" alt="">
+                            <div class="play-icon">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <p class="title">Guy Ritchie's - The Covenant</p>
+                            <div class="other-info">
+                                <span class="release-info">2023</span>
+                                <span class="duration-info">
+                                    <i class="fa fa-clock" aria-hidden="true"> 1h 37m</i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="movies-content-heading">
+            <h3>Featured <span>Movies</span></h3>
+        </div>
+        <div class="featured-movies-slider">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+        <div class="col-2 hvr-sweep-img">
+            <a [routerLink]="['/SelectedMovie/', id]" class="movie-details">
+                <div class="movie-poster">
+                    <img title="Movie Title" src="./../../../../assets/images/The Creator.jpg" alt="">
+                    <div class="play-icon">
+                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            <div class="movie-info">
+                <p class="title">Guy Ritchie's - The Covenant</p>
+                <div class="other-info">
+                    <span class="release-info">2023</span>
+                    <span class="duration-info">
+                        <i class="fa fa-clock" aria-hidden="true"> 1h 11m</i>
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>netchill-home works!</p>
 <p>This is User Home page using User layout</p>
+
+<table *ngIf="BaseInfoData.length > 0">
+    <thead>
+        <tr>
+            <th>Poster File</th>
+            <th>Clip File</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of MediaFilesData">
+            <td><img [src]="filePath(movie.moviePosterPath)"alt="movie poster" style="width:200px; height:296px;"></td>
+            <td>
+                <video width="800" height="400" controls>
+                    <source [src]="filePath(movie.videoClipPath)" type="video/mp4">
+                    <source [src]="filePath(movie.videoClipPath)" type="video/webm">
+                    <source [src]="filePath(movie.videoClipPath)" type="video/ogg">
+                    </video>
+            </td>
+        </tr>
+    </tbody>
+</table> -->

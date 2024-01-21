@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.FileProviders;
 using NetChill.Infrastructure.Identity.Models;
 using NetChill.Infrastructure.Identity.Seeds;
 using NetChill.Ioc.Dependency_Injection;
@@ -65,6 +66,13 @@ app.UseRouting();
 
 //Configures client app access by whitelisting its URL
 app.UseCors("CorsPolicy");
+
+//Serving static files
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Media Files")),
+    RequestPath = new PathString("/Media Files")
+});
 
 app.UseAuthentication();
 app.UseAuthorization();

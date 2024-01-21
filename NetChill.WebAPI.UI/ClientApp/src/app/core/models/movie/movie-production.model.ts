@@ -1,8 +1,10 @@
 import { Guid } from 'guid-typescript';
 
 export class MovieProduction {
-  movieRef: Guid;
+  productionId: number;
   directors: string;
   writers: string;
   movieStars: string;
+
+  movieRef: Guid;
 }

@@ -2,7 +2,6 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 import { DatePipe } from '@angular/common';
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgSelectConfig } from '@ng-select/ng-select';
 import { Guid } from 'guid-typescript';
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,8 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { MovieGenre } from 'src/app/core/models/movie/movie-genre.model';
 import { MovieLanguage } from 'src/app/core/models/movie/movie-language.model';
 import { MovieBaseInfoService } from 'src/app/shared/services/movie/movie-base-info.service';
-import { MovieGenreService } from 'src/app/shared/services/movie/movie-genre.service';
-import { MovieLanguageService } from 'src/app/shared/services/movie/movie-language.service';
+import { MovieGenreService } from 'src/app/shared/services/movie/accessories/movie-genre.service';
+import { MovieLanguageService } from 'src/app/shared/services/movie/accessories/movie-language.service';
 
 //Declares variables & functions from script file
 
@@ -43,7 +42,6 @@ export class MovieBaseInfoComponent implements OnInit {
     private datePipe: DatePipe,
     public builder: FormBuilder,
     private toastr: ToastrService,
-    private selectConfig: NgSelectConfig,
     private genreService: MovieGenreService,
     private apiService: MovieBaseInfoService,
     private languageService: MovieLanguageService,

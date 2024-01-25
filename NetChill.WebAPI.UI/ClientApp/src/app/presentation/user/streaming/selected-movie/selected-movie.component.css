@@ -85,10 +85,19 @@
     color: #565e64;
 }
 
+
+
 .selected-movie .movie-stream {
 	box-shadow: 0px 0px 6px #d3d3d3;
     background-color: #a3a8ad;
-	padding: 20em 20em;
+	padding: 2em 2em;
 	margin: 5em auto;
     width: 95%;
+}
+
+.video_player video {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
 }

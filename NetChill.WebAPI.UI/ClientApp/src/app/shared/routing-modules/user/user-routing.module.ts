@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NetchillHomeComponent } from 'src/app/presentation/user/netchill-home/netchill-home.component';
 import { SelectedMovieComponent } from 'src/app/presentation/user/streaming/selected-movie/selected-movie.component';
+import { SelectedUpcomingComponent } from 'src/app/presentation/user/streaming/upcoming-movies/selected-upcoming/selected-upcoming.component';
 
 const routes: Routes = [
   {
     path: '', component: NetchillHomeComponent,
     children: [
       { path: 'Home', component: NetchillHomeComponent },
-      { path: 'SelectedMovie/:id', component: SelectedMovieComponent }
+      { path: 'SelectedMovie/:id', component: SelectedMovieComponent },
+      { path: 'SelectedUpcoming/:id', component: SelectedUpcomingComponent }
     ]
   }
 ];

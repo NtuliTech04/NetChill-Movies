@@ -8,6 +8,7 @@ namespace NetChill.Application.Features.Movie.Clip.Queries.GetAllMovieClips
         public int ClipId { get; set; }
         public string MoviePosterPath { get; set; }
         public string VideoClipPath { get; set; }
+        public string MovieTrailerUrl { get; set; }
         public DateTime UploadDate { get; set; }
 
         public Guid MovieRef { get; set; }

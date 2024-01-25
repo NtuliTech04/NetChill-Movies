@@ -27,17 +27,24 @@ namespace NetChill.Application.Features.Movie.Clip.Commands.CreateClip
 
 
             //Video Clip File
-            RuleFor(r => r.VideoClip)
-               .NotNull().WithMessage("Movie clip file is required.");
 
-            RuleFor(r => r.VideoClip.Length)
-                .ExclusiveBetween(0, MediaConstants.VideoMaxBytes)
-                .WithMessage($"Movie clip size cannot be more than {MediaConstants.VideoMaxMegaBytes} MB")
-                .When(r => r.VideoClip != null);
+           When(r => !r.IsTrailer, () => 
+           { 
+                RuleFor(r => r.VideoClip.Length)
+                    .ExclusiveBetween(0, MediaConstants.VideoMaxBytes)
+                    .WithMessage($"Movie clip size cannot be more than {MediaConstants.VideoMaxMegaBytes} MB")
+                    .When(r => r.VideoClip != null);
 
-            RuleFor(r => r.VideoClip.FileName)
-                .Matches(RegexExpressions.VideoRegex)
-                .WithMessage("Invalid video format. Only mp4, webm, and oog are acceptable.");
+                RuleFor(r => r.VideoClip.FileName)
+                    .Matches(RegexExpressions.VideoRegex)
+                    .WithMessage("Invalid video format. Only mp4, webm, and oog are acceptable.");
+
+            }).Otherwise(() =>
+            {
+                RuleFor(r => r.MovieTrailerUrl)
+                    .NotNull().WithMessage("Movie trailer link is required.");
+            });
+
         }
     }
 }

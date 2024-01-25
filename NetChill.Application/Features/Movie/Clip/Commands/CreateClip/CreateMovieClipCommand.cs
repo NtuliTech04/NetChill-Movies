@@ -18,7 +18,11 @@ namespace NetChill.Application.Features.Movie.Clip.Commands.CreateClip
 
         public IFormFile MoviePoster { get; set; }
 
-        public IFormFile VideoClip { get; set; }
+        public IFormFile? VideoClip { get; set; }
+
+        public string? MovieTrailerUrl { get; set; }
+
+        public bool IsTrailer => VideoClip == null;
     }
 
     internal class CreateMovieClipCommandHandler : IRequestHandler<CreateMovieClipCommand, Result<Guid>>
@@ -49,6 +53,7 @@ namespace NetChill.Application.Features.Movie.Clip.Commands.CreateClip
                     MovieRef = command.MovieRef,
                     MoviePosterPath = await _movieClipRepository.UploadMoviePoster(command.MoviePoster),
                     VideoClipPath = await _movieClipRepository.UploadMovieClip(command.VideoClip),
+                    MovieTrailerUrl = command.MovieTrailerUrl,
                     UploadDate = DateTime.UtcNow
                 };
 

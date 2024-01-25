@@ -95,6 +95,9 @@ namespace NetChill.Persistence.Migrations.NetChillDb
                     b.Property<Guid>("MovieRef")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("MovieTrailerUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UploadDate")
                         .HasColumnType("datetime2");
 

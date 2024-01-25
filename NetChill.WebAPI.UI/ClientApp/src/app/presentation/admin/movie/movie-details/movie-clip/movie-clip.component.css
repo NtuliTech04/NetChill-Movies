@@ -68,7 +68,7 @@
   margin: 0 auto;
 }
 
-.upload-clip input{
+.upload-clip input.d-none{
   opacity: 0;
   position: absolute;
   z-index: 2;

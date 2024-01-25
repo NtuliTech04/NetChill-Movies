@@ -61,7 +61,9 @@
             ],
             "scripts": [
               "src/assets/js/script.js",
-              "src/assets/js/bootstrap.min.js"
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/player.js",
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
@@ -139,7 +141,8 @@
             ],
             "scripts": [
               "src/assets/js/script.js",
-              "src/assets/js/bootstrap.min.js"
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/player.js"
             ]
           }
         }

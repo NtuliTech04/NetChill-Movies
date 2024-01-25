@@ -88,6 +88,12 @@ namespace NetChill.Persistence.Repositories.Movie
         {
             try
             {
+                //Checks if video file was uploaded
+                if (iformFile == null) 
+                {
+                    return null;
+                }
+
                 FileInfo fileInfo = new FileInfo(iformFile.FileName);
 
                 //Gets and store title in a variable

@@ -63,9 +63,30 @@ export class MovieClipComponent implements OnInit {
   uploadFormValidation() {
     this.uploadFilesForm = this.builder.group({
       moviePoster: [null, [Validators.required]],
+      movieTrailerUrl: [null],
       videoClip: [null, [Validators.required]]
     });
+
+    //On trailer input change
+    this.uploadFilesForm.get('movieTrailerUrl').valueChanges.subscribe((trailer) => {
+      
+      const videoControl = this.uploadFilesForm.get('videoClip');
+      
+      //Clear existing validators
+      videoControl.clearValidators();
+
+      //Add new conditional based validators
+      if(trailer.length > 0){
+        videoControl.setValidators([Validators.nullValidator])
+      } else{
+        videoControl.setValidators([Validators.required])
+      }
+      
+      //Trigger (update) Validation
+      videoControl.updateValueAndValidity();
+    });
   }
+
 
   //Getter to access form control
   get validateForm() {
@@ -223,6 +244,7 @@ export class MovieClipComponent implements OnInit {
   //Removes the selected file & resets the file input
   deleteClipFile() {
     this.videoFile = null;
+    this.formData.set('videoClip', null);
     this.clipInput.nativeElement.click();
   }
 
@@ -251,6 +273,12 @@ export class MovieClipComponent implements OnInit {
 
 
   uploadMovieFiles() {
+
+    //Add trailer link to form data
+    let trailerLink = this.uploadFilesForm.get('movieTrailerUrl').value;
+    this.formData.append('movieTrailerUrl', trailerLink);
+
+    //Use api service
     return this.apiService.uploadMovieFiles(this.movieRef, this.formData)
     .subscribe({
       next: (response) => {

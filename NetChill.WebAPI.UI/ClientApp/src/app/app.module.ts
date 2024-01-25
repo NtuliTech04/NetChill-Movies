@@ -30,6 +30,13 @@ import { MovieClipService } from './shared/services/movie/movie-clip.service';
 import { DragDropDirective } from './shared/directives/drag-drop.directive';
 import { ProgressComponent } from './presentation/admin/movie/movie-details/movie-clip/progress/progress.component';
 import { SelectedMovieComponent } from './presentation/user/streaming/selected-movie/selected-movie.component';
+import { UpcomingMoviesComponent } from './presentation/user/streaming/upcoming-movies/upcoming-movies.component';
+import { SelectedUpcomingComponent } from './presentation/user/streaming/upcoming-movies/selected-upcoming/selected-upcoming.component';
+import { FeaturedMoviesComponent } from './presentation/user/streaming/featured-movies/featured-movies.component';
+import { LatestMoviesComponent } from './presentation/user/streaming/latest-movies/latest-movies.component';
+import { CarouselUpcomingComponent } from './presentation/user/streaming/upcoming-movies/carousel-upcoming/carousel-upcoming.component';
+import { LatestCarouselComponent } from './presentation/user/streaming/latest-movies/latest-carousel/latest-carousel.component';
+import { CarouselFeaturedComponent } from './presentation/user/streaming/featured-movies/carousel-featured/carousel-featured.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +53,14 @@ import { SelectedMovieComponent } from './presentation/user/streaming/selected-m
     MovieLanguageComponent,
     DragDropDirective,
     ProgressComponent,
-    SelectedMovieComponent
+    SelectedMovieComponent,
+    UpcomingMoviesComponent,
+    SelectedUpcomingComponent,
+    FeaturedMoviesComponent,
+    LatestMoviesComponent,
+    CarouselUpcomingComponent,
+    LatestCarouselComponent,
+    CarouselFeaturedComponent
   ],
   imports: [
     BrowserModule,
@@ -61,10 +75,10 @@ import { SelectedMovieComponent } from './presentation/user/streaming/selected-m
     CarouselModule
   ],
   providers: [
-    {
-      //Adds ‘#’ in front of every route to solve the 404 Error on page reload.
-      provide: LocationStrategy, useClass: HashLocationStrategy
-    },
+    // {
+    //   //Adds ‘#’ in front of every route to solve the 404 Error on page reload.
+    //   provide: LocationStrategy, useClass: HashLocationStrategy
+    // },
     MovieGenreService,
     MovieLanguageService,
     MovieBaseInfoService,

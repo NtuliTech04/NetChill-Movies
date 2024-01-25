@@ -9,6 +9,7 @@ import { MovieLanguageComponent } from './presentation/admin/common/movie-langua
 import { MovieProductionComponent } from './presentation/admin/movie/movie-details/movie-production/movie-production.component';
 import { MovieClipComponent } from './presentation/admin/movie/movie-details/movie-clip/movie-clip.component';
 import { SelectedMovieComponent } from './presentation/user/streaming/selected-movie/selected-movie.component';
+import { SelectedUpcomingComponent } from './presentation/user/streaming/upcoming-movies/selected-upcoming/selected-upcoming.component';
 
 const routes: Routes = [
   //User Routes
@@ -27,7 +28,8 @@ const routes: Routes = [
               import('./shared/routing-modules/user/user.module')
               .then(m=>m.UserModule)
       },
-      { path: 'SelectedMovie/:id', component: SelectedMovieComponent }
+      { path: 'SelectedMovie/:id', component: SelectedMovieComponent },
+      { path: 'SelectedUpcoming/:id', component: SelectedUpcomingComponent }
     ]
   },
 
@@ -59,9 +61,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    //RouterModule.forRoot(routes, { useHash: true })
+  imports: [    
+    RouterModule.forRoot(routes, { 
+      useHash: true, //Route Hashing
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
+    }) 
   ],
   exports: [RouterModule]
 })

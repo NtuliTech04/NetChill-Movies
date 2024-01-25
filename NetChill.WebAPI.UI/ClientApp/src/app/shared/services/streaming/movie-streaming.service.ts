@@ -15,6 +15,23 @@ export class MovieStreamingService {
 
   constructor(private http: HttpClient) { }
 
+  //Get all upcoming movies info
+  getUpcomingInfoList(): Observable<MovieBaseInfo[]> {
+    let url = `${this.URL}/Movies/upcoming-info/list`;
+    return this.http.get<MovieBaseInfo[]>(url);
+  }
+
+
+  //Get all upcoming movies files
+  getUpcomingMediaList(): Observable<MovieClip[]> {
+    let url = `${this.URL}/Movies/upcoming-media/list`;
+    return this.http.get<MovieClip[]>(url);
+  }
+  
+
+
+
+
   //Get all movies info
   getBaseInfoList(): Observable<MovieBaseInfo[]> {
     let url = `${this.URL}/Movies/info/list`;

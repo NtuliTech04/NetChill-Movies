@@ -9,6 +9,8 @@ using NetChill.Application.Features.Movie.Production.Queries.GetAllProduction;
 using NetChill.Application.Features.Movie.Clip.Queries.GetAllMovieClips;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllUpcoming;
 using NetChill.Application.Features.Movie.Clip.Queries.GetAllUpcomingMovieClips;
+using NetChill.Application.Features.Movie.Clip.Queries.GetAllLatestMovieClips;
+using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllLatestMoviesInfo;
 
 namespace NetChill.WebAPI.UI.Controllers
 {
@@ -61,6 +63,23 @@ namespace NetChill.WebAPI.UI.Controllers
         {
             return await _mediator.Send(new GetAllUpcomingMovieClipsQuery());
         }
+
+
+        //List Latest Movies Info
+        [HttpGet, Route("latest-info/list")]
+        public async Task<ActionResult<Result<List<GetAllLatestMoviesInfoDto>>>> ListLatestMoviesInfo()
+        {
+            return await _mediator.Send(new GetAllLatestMoviesInfoQuery());
+        }
+
+
+        //List Latest Movies Files
+        [HttpGet, Route("latest-media/list")]
+        public async Task<ActionResult<Result<List<GetAllLatestMovieClipsDto>>>> ListLatestMoviesFiles()
+        {
+            return await _mediator.Send(new GetAllLatestMovieClipsQuery());
+        }
+
 
         #endregion
 

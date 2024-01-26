@@ -7,7 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselModule as OwlCarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselModule as PrimgengCarouselModule } from 'primeng/carousel';
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,8 +38,8 @@ import { SelectedUpcomingComponent } from './presentation/user/streaming/upcomin
 import { FeaturedMoviesComponent } from './presentation/user/streaming/featured-movies/featured-movies.component';
 import { LatestMoviesComponent } from './presentation/user/streaming/latest-movies/latest-movies.component';
 import { CarouselUpcomingComponent } from './presentation/user/streaming/upcoming-movies/carousel-upcoming/carousel-upcoming.component';
-import { LatestCarouselComponent } from './presentation/user/streaming/latest-movies/latest-carousel/latest-carousel.component';
 import { CarouselFeaturedComponent } from './presentation/user/streaming/featured-movies/carousel-featured/carousel-featured.component';
+import { CarouselLatestComponent } from './presentation/user/streaming/latest-movies/carousel-latest/carousel-latest.component';
 
 @NgModule({
   declarations: [
@@ -59,8 +62,8 @@ import { CarouselFeaturedComponent } from './presentation/user/streaming/feature
     FeaturedMoviesComponent,
     LatestMoviesComponent,
     CarouselUpcomingComponent,
-    LatestCarouselComponent,
-    CarouselFeaturedComponent
+    CarouselFeaturedComponent,
+    CarouselLatestComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { CarouselFeaturedComponent } from './presentation/user/streaming/feature
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    CarouselModule
+    OwlCarouselModule,
+    PrimgengCarouselModule
   ],
   providers: [
     // {

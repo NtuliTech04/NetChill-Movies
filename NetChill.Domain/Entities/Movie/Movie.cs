@@ -15,7 +15,6 @@ namespace NetChill.Domain.Entities.Movie
         public int YearReleased { get; set; }
         public DateTime AvailableFrom { get; set; }
         public double? AvgRating { get; set; }
-        public bool IsUpcoming => AvailableFrom > DateTime.UtcNow;
 
         public MovieProduction MovieProduction { get; set; }
         public MovieClip MovieClip { get; set; }

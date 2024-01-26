@@ -14,8 +14,8 @@ import { environment } from 'src/environments/environment.development';
 })
 export class CarouselUpcomingComponent implements OnInit{
 
-  upcomingInfoData: MovieBaseInfo[] =  [];
-  upcomingMediaData: MovieClip[] =  [];
+  upcomingInfoData: MovieBaseInfo[] =  new Array();
+  upcomingMediaData: MovieClip[] =  new Array();
   // upcomingMoviesFull: any[] = [];
 
   
@@ -114,7 +114,7 @@ export class CarouselUpcomingComponent implements OnInit{
     // }
 
     //Creating media files path
-    public filePath = (serverPath: string) => {
+    public fileUrl = (serverPath: string) => {
       return `${environment.baseUrl}/${serverPath}`;
     }
 

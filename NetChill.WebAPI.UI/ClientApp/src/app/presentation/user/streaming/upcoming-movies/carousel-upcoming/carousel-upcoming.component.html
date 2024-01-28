@@ -8,10 +8,10 @@
                 <ng-container *ngFor="let movie of upcomingInfoData.slice(0, 6); let i = index">
                     <ng-template carouselSlide id="{{movie.movieId}}">
                         <div class="col-12 movie-item-slider hvr-sweep-img">
-                            <a (click)="clickhandler(movie.movieId)" class="movie-details">
+                            <a (click)="clickHandler(movie.movieId)" class="movie-details">
                                 <!-- <a href="{{'#/SelectedUpcoming/'+ movie[0].movieId}}" (click)="clickhandler(movie[0].movieId)" class="movie-details"> -->
                                 <div class="movie-poster upcoming">
-                                    <img title="{{movie.title}}" [src]="fileUrl(upcomingMediaData[i].moviePosterPath)" alt="">
+                                    <img title="{{movie.title}}" [src]="posterUrl(upcomingMediaData[i].moviePosterPath)" alt="">
                                     <div class="play-icon">
                                         <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                     </div>

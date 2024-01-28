@@ -21,13 +21,11 @@ export class MovieStreamingService {
     return this.http.get<MovieBaseInfo[]>(url);
   }
 
-
   //Get all upcoming movies files
   getUpcomingMediaList(): Observable<MovieClip[]> {
     let url = `${this.URL}/Movies/upcoming-media/list`;
     return this.http.get<MovieClip[]>(url);
   }
-
 
   //Get all latest movies info
   getLatestInfoList(): Observable<MovieBaseInfo[]> {
@@ -40,13 +38,20 @@ export class MovieStreamingService {
     let url = `${this.URL}/Movies/latest-media/list`;
     return this.http.get<MovieClip[]>(url);
   }
+  
+  //Get all featured movies info
+  getFeaturedInfoList(): Observable<MovieBaseInfo[]> {
+    let url = `${this.URL}/Movies/featured-info/list`;
+    return this.http.get<MovieBaseInfo[]>(url);
+  }
 
-  //Get video files infomation
-  getVideoMetadata(videoPath: string): Observable<any> {
-    return this.http.get(videoPath, {responseType: 'blob'});
+  //Get all featured movies files
+  getFeaturedMediaList(): Observable<MovieClip[]> {
+    let url = `${this.URL}/Movies/featured-media/list`;
+    return this.http.get<MovieClip[]>(url);
   }
   
-  
+    
 
 
 

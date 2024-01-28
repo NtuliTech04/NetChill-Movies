@@ -27,13 +27,10 @@ namespace NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllLatestMovie
         public async Task<Result<List<GetAllLatestMoviesInfoDto>>> Handle(GetAllLatestMoviesInfoQuery query, CancellationToken cancellationToken)
         {
             var latest = await _unitOfWork.Repository<MovieBaseInfo>().Entities
-                .Where(x =>
-                            x.AvailableFrom <= _date.NowUtc &&
-                            x.IsFeatured == false &&
-                            x.YearReleased == _date.NowUtc.Year ||
-                            x.YearReleased == _date.NowUtc.Year - 1
-                ).ProjectTo<GetAllLatestMoviesInfoDto>(_mapper.ConfigurationProvider)
-                 .ToListAsync(cancellationToken);
+                .Where(x => x.IsUpcoming == false && x.IsFeatured == false)
+                .Where(x => x.YearReleased == _date.NowUtc.Year || x.YearReleased == _date.NowUtc.Year - 1)
+                .ProjectTo<GetAllLatestMoviesInfoDto>(_mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
 
             return await Result<List<GetAllLatestMoviesInfoDto>>.SuccessAsync(latest);
         }

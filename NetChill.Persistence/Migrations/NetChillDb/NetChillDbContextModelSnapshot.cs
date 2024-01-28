@@ -49,6 +49,9 @@ namespace NetChill.Persistence.Migrations.NetChillDb
                     b.Property<bool>("IsFeatured")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsUpcoming")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Languages")
                         .HasColumnType("nvarchar(max)");
 

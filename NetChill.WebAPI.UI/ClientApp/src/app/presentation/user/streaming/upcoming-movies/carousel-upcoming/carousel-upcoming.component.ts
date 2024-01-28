@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Guid } from 'guid-typescript';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { MovieBaseInfo } from 'src/app/core/models/movie/movie-base-info.model';
 import { MovieClip } from 'src/app/core/models/movie/movie-clip.model';
@@ -12,7 +14,7 @@ import { environment } from 'src/environments/environment.development';
   templateUrl: './carousel-upcoming.component.html',
   styleUrls: ['./carousel-upcoming.component.css']
 })
-export class CarouselUpcomingComponent implements OnInit{
+export class CarouselUpcomingComponent implements OnInit {
 
   upcomingInfoData: MovieBaseInfo[] =  new Array();
   upcomingMediaData: MovieClip[] =  new Array();
@@ -21,15 +23,15 @@ export class CarouselUpcomingComponent implements OnInit{
   
   constructor (
     private streamingService: MovieStreamingService,
-    private datePipe: DatePipe
-   ) { 
+    private datePipe: DatePipe,
+    private router: Router
+   ) {}
 
-    }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.upcomingInfoes();
     this.upcomingFiles();
   }
+
 
 
   //Get and populate upcoming movies base info
@@ -46,33 +48,31 @@ export class CarouselUpcomingComponent implements OnInit{
     });
   }  
 
+  //Get and populate upcoming movies files
+  upcomingFiles() {
+    this.streamingService.getUpcomingMediaList()
+    .subscribe({
+      next:(data) => {
+        this.upcomingMediaData = data['data'] as MovieClip[];
+        // this.matchMergeMovies();
+      },
+      error: (ex: HttpErrorResponse) => {
+        console.log('Failed to populate upcoming movies files data', ex);
+      }    
+    });
+  }
 
-    //Get and populate upcoming movies files
-    upcomingFiles() {
-      this.streamingService.getUpcomingMediaList()
-      .subscribe({
-        next:(data) => {
-          this.upcomingMediaData = data['data'] as MovieClip[];
-          // this.matchMergeMovies();
-        },
-        error: (ex: HttpErrorResponse) => {
-          console.log('Failed to populate upcoming movies files data', ex);
-        }    
+
+    //=> User Interactions
+    
+    clickHandler(id: Guid): void {
+      this.router.navigateByUrl('/SelectedUpcoming/'+id)
+      .then(() => {
+        this.router.navigate([this.router.url]);
       });
     }
 
-
-    //User Interactions
-
-    clickhandler(id: any):void {
-      const href = window.location.origin + '#/SelectedUpcoming/'+id;
-      window.location.href = href;
-      window.location.reload();
-    }
-
-
-
-    //Helper Functions
+    //=> Configurations
 
     //Carousel Settings
     customOptions: OwlOptions = {
@@ -97,6 +97,11 @@ export class CarouselUpcomingComponent implements OnInit{
     }
     //Carousel Settings
 
+
+
+    //=> Helper Functions
+
+    
     //Creates a group of arrays containing data for matching movies.
     // matchMergeMovies() {
     //   let fullMovieData: any[] = new Array();
@@ -113,13 +118,13 @@ export class CarouselUpcomingComponent implements OnInit{
     //   }   
     // }
 
-    //Creating media files path
-    public fileUrl = (serverPath: string) => {
+    //Creating poster image url path
+    public posterUrl = (serverPath: string) => {
       return `${environment.baseUrl}/${serverPath}`;
     }
 
     //Extract the month from date
     selectMonth(date: Date): string {
-      return this.datePipe.transform(date, 'MMMM') || '';
+      return this.datePipe.transform(date, 'MMM') || '';
     }
 }

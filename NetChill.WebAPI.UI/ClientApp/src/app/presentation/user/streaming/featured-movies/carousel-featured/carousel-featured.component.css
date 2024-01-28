@@ -26,6 +26,7 @@
 }
 
 a.movie-details {
+    cursor: pointer;
     text-decoration: none;
 }
 

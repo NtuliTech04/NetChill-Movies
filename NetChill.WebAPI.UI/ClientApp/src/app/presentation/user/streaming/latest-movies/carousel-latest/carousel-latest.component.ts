@@ -1,6 +1,6 @@
-import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Guid } from 'guid-typescript';
 
 import { MovieBaseInfo } from 'src/app/core/models/movie/movie-base-info.model';
@@ -23,8 +23,10 @@ export class CarouselLatestComponent implements OnInit {
 
 
 
-  constructor (private streamingService: MovieStreamingService  ) 
-  {
+  constructor (
+    private streamingService: MovieStreamingService,
+    private router: Router
+  ) {
 
   }
 
@@ -66,11 +68,13 @@ export class CarouselLatestComponent implements OnInit {
 
   //User Interactions
 
-  clickhandler(id: any):void {
-    const href = window.location.origin + '#/SelectedMovie/'+id;
-    window.location.href = href;
-    window.location.reload();
+  clickHandler(id: Guid): void {
+    this.router.navigateByUrl('/SelectedMovie/'+id)
+    .then(() => {
+      this.router.navigate([this.router.url]);
+    });
   }
+
 
 
 
@@ -81,7 +85,7 @@ export class CarouselLatestComponent implements OnInit {
     return this.movieDurations.find(x=>x.movieId == id)?.duration;
   }
 
-  //Creates a temp array of movie durations with an identifier 
+  //Creates an array of movie durations with an identifier 
   getMovieDurations() {
     this.latestMediaData.forEach((movieData) => {
       const movie = document.createElement('video');
@@ -107,8 +111,9 @@ export class CarouselLatestComponent implements OnInit {
     return `${environment.baseUrl}/${serverPath}`;
   }
 
-  //Get poster path
-  public posterPath = (id: Guid) => {
-    return this.latestMediaData.find(x => x.movieRef === id)?.moviePosterPath;
+  //Creating poster image url path
+  public posterUrl = (id: Guid) => {
+    let serverPath = this.latestMediaData.find(x => x.movieRef === id)?.moviePosterPath;
+    return `${environment.baseUrl}/${serverPath}`;
   }
 }

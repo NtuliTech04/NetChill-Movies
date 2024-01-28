@@ -11,6 +11,7 @@ namespace NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllBaseInfo
         public string Description { get; set; }
         public string Languages { get; set; }
         public bool IsFeatured { get; set; }
+        public bool IsUpcoming { get; set; }
         public int YearReleased { get; set; }
         public DateTime AvailableFrom { get; set; }
         public double AvgRating { get; set; }

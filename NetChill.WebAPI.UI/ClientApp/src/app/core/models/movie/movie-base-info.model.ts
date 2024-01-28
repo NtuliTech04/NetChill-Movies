@@ -7,6 +7,7 @@ export class MovieBaseInfo {
   description: string;
   languages: string;
   isFeatured: boolean;
+  isUpcoming: boolean;
   yearReleased: number;
   availableFrom: Date;
   avgRating: number;

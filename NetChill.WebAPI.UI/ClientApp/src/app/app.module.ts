@@ -40,6 +40,7 @@ import { LatestMoviesComponent } from './presentation/user/streaming/latest-movi
 import { CarouselUpcomingComponent } from './presentation/user/streaming/upcoming-movies/carousel-upcoming/carousel-upcoming.component';
 import { CarouselFeaturedComponent } from './presentation/user/streaming/featured-movies/carousel-featured/carousel-featured.component';
 import { CarouselLatestComponent } from './presentation/user/streaming/latest-movies/carousel-latest/carousel-latest.component';
+import { SearchMovieComponent } from './presentation/user/streaming/search-movie/search-movie.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CarouselLatestComponent } from './presentation/user/streaming/latest-mo
     LatestMoviesComponent,
     CarouselUpcomingComponent,
     CarouselFeaturedComponent,
-    CarouselLatestComponent
+    CarouselLatestComponent,
+    SearchMovieComponent
   ],
   imports: [
     BrowserModule,

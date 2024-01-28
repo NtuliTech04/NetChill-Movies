@@ -2,6 +2,7 @@
 using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Common.Mappings;
 using NetChill.Application.Features.Movie.Accessories;
+using NetChill.Application.Interfaces;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;
@@ -30,12 +31,14 @@ namespace NetChill.Application.Features.Movie.BaseInfo.Commands.CreateInfo
         private readonly ITrackCreationProgressRepository _tracker;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMediator _mediator;
+        private readonly IDateTimeService _date;
 
-        public CreateMovieInfoCommandHandler(ITrackCreationProgressRepository tracker,    IUnitOfWork unitOfWork, IMediator mediator)
+        public CreateMovieInfoCommandHandler(ITrackCreationProgressRepository tracker, IUnitOfWork unitOfWork, IMediator mediator, IDateTimeService date)
         {
             _tracker = tracker;
             _unitOfWork = unitOfWork;
             _mediator = mediator;
+            _date = date;
         }
 
         public async Task<Result<Guid>> Handle(CreateBaseInfoCommand command, CancellationToken cancellationToken)
@@ -51,6 +54,7 @@ namespace NetChill.Application.Features.Movie.BaseInfo.Commands.CreateInfo
                     IsFeatured = command.IsFeatured,
                     YearReleased = command.YearReleased,
                     AvailableFrom = command.AvailableFrom,
+                    IsUpcoming = command.AvailableFrom > _date.NowUtc,
                 };
 
                 await _unitOfWork.Repository<MovieBaseInfo>().InsertAsync(baseInfo);

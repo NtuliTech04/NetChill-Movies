@@ -27,12 +27,10 @@ namespace NetChill.Application.Features.Movie.Clip.Queries.GetAllLatestMovieClip
         public async Task<Result<List<GetAllLatestMovieClipsDto>>> Handle(GetAllLatestMovieClipsQuery query, CancellationToken cancellationToken)
         {
             var latest = await _unitOfWork.Repository<MovieClip>().Entities
-                .Where(x => x.MovieBaseInfo.AvailableFrom <= _date.NowUtc &&
-                            x.MovieBaseInfo.IsFeatured == false &&
-                            x.MovieBaseInfo.YearReleased == _date.NowUtc.Year ||
-                            x.MovieBaseInfo.YearReleased == _date.NowUtc.Year - 1
-                ).ProjectTo<GetAllLatestMovieClipsDto>(_mapper.ConfigurationProvider)
-                 .ToListAsync(cancellationToken);
+                .Where(x => x.MovieBaseInfo.IsUpcoming == false && x.MovieBaseInfo.IsFeatured == false)
+                .Where(x => x.MovieBaseInfo.YearReleased == _date.NowUtc.Year || x.MovieBaseInfo.YearReleased == _date.NowUtc.Year - 1)
+                .ProjectTo<GetAllLatestMovieClipsDto>(_mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
 
             return await Result<List<GetAllLatestMovieClipsDto>>.SuccessAsync(latest);
         }

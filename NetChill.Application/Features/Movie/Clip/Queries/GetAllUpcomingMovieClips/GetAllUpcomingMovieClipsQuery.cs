@@ -15,19 +15,17 @@ namespace NetChill.Application.Features.Movie.Clip.Queries.GetAllUpcomingMovieCl
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly IDateTimeService _date;
 
-        public GetAllUpcomingMovieClipsHandler(IUnitOfWork unitOfWork, IMapper mapper, IDateTimeService date)
+        public GetAllUpcomingMovieClipsHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _date = date;
         }
 
         public async Task<Result<List<GetAllUpcomingMovieClipsDto>>> Handle(GetAllUpcomingMovieClipsQuery query, CancellationToken cancellationToken)
         {
             var upcoming = await _unitOfWork.Repository<MovieClip>().Entities
-                .Where(x => x.MovieBaseInfo.AvailableFrom > _date.NowUtc)
+                .Where(x => x.MovieBaseInfo.IsUpcoming == true)
                 .ProjectTo<GetAllUpcomingMovieClipsDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

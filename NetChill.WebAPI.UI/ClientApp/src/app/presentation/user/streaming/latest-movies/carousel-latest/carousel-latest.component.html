@@ -4,13 +4,13 @@
     </div>
     <div class="latest-movies-slider">
         <div class="row">
-            <p-carousel [value]="latestInfoData" [numVisible]="5" [numScroll]="1" [circular]="false"
+            <p-carousel [value]="latestInfoData.slice(0, 10)" [numVisible]="5" [numScroll]="1" [circular]="false"
                 [showNavigators]="true" [showIndicators]="true">
-                <ng-template ngFor let-info [ngForOf]="latestInfoData.slice(0, 10)" pTemplate="item">
+                <ng-template ngFor let-info [ngForOf]="latestInfoData" pTemplate="item">
                     <div class="col-12 movie-item-slider hvr-sweep-img">
-                        <a (click)="clickhandler(info.movieId)" class="movie-details">
+                        <a (click)="clickHandler(info.movieId)" class="movie-details">
                             <div class="movie-poster latest">
-                                <img title="{{info.title}}" [src]="fileUrl(posterPath(info.movieId))" alt="">
+                                <img title="{{info.title}}" [src]="posterUrl(info.movieId)" alt="">
                                 <div class="play-icon">
                                     <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                 </div>

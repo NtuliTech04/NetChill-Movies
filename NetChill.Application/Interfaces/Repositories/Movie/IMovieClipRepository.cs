@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.Security.Principal;
+using NetChill.Domain.Entities.Movie;
 
 namespace NetChill.Application.Interfaces.Repositories.Movie
 {
@@ -7,7 +7,8 @@ namespace NetChill.Application.Interfaces.Repositories.Movie
     public interface IMovieClipRepository
     {
         Guid MovieRef { get; set; }
-        Task<bool> CheckMovieRefExistence();
+        Task<bool> CheckMovieRefExistence(); 
+        Task<MovieClip> GetFilesByMovieRef(Guid movieRef);
         Task<string> UploadMoviePoster(IFormFile _iformFile); 
         Task<string> UploadMovieClip(IFormFile _iformFile);
     }

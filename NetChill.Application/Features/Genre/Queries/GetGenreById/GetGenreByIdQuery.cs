@@ -54,8 +54,6 @@ namespace NetChill.Application.Features.Genre.Queries.GetGenreById
             {
                 return await Result<GetGenreByIdDto>.FailureAsync("Genre Not Found.");
             }
-
-
         }
     }
 }

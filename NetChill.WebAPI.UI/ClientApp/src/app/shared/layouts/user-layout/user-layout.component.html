@@ -62,11 +62,11 @@
               <li><a class="dropdown-item" href="#">Recommendations</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Featured</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">New Releases</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Upcoming</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/Home" fragment="featured">Featured</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/Home" fragment="latest">New Releases</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/Home" fragment="upcoming">Upcoming</a></li>
         </ul>
-        <app-search-movie></app-search-movie>
+        <app-user-search></app-user-search>
       </div>
     </div>
   </nav>

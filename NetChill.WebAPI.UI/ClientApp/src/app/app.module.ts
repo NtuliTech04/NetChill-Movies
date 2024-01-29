@@ -40,7 +40,8 @@ import { LatestMoviesComponent } from './presentation/user/streaming/latest-movi
 import { CarouselUpcomingComponent } from './presentation/user/streaming/upcoming-movies/carousel-upcoming/carousel-upcoming.component';
 import { CarouselFeaturedComponent } from './presentation/user/streaming/featured-movies/carousel-featured/carousel-featured.component';
 import { CarouselLatestComponent } from './presentation/user/streaming/latest-movies/carousel-latest/carousel-latest.component';
-import { SearchMovieComponent } from './presentation/user/streaming/search-movie/search-movie.component';
+import { UserSearchComponent } from './presentation/user/user-search/user-search.component';
+import { SearchResultsComponent } from './presentation/user/user-search/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { SearchMovieComponent } from './presentation/user/streaming/search-movie
     CarouselUpcomingComponent,
     CarouselFeaturedComponent,
     CarouselLatestComponent,
-    SearchMovieComponent
+    UserSearchComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

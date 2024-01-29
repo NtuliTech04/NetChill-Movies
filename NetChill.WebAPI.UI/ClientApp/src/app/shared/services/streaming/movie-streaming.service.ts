@@ -1,9 +1,11 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Guid } from 'guid-typescript';
 import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+
 import { MovieBaseInfo } from 'src/app/core/models/movie/movie-base-info.model';
 import { MovieClip } from 'src/app/core/models/movie/movie-clip.model';
-import { MovieProduction } from 'src/app/core/models/movie/movie-production.model';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -14,6 +16,26 @@ export class MovieStreamingService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
+
+
+  //#region All Movies Lists
+
+  //Get all movies info
+  getBaseInfoList(): Observable<MovieBaseInfo[]> {
+    let url = `${this.URL}/Movies/info/list`;
+    return this.http.get<MovieBaseInfo[]>(url);
+  }
+
+  //Get all movies files
+  getAllMediaFiles(): Observable<MovieClip[]> {
+    let url = `${this.URL}/Movies/mediafiles/list`;
+    return this.http.get<MovieClip[]>(url);
+  }
+
+  //#endregion All Movies List End
+
+
+  //#region  Organized Movie Lists
 
   //Get all upcoming movies info
   getUpcomingInfoList(): Observable<MovieBaseInfo[]> {
@@ -50,51 +72,63 @@ export class MovieStreamingService {
     let url = `${this.URL}/Movies/featured-media/list`;
     return this.http.get<MovieClip[]>(url);
   }
-  
-    
+
+  //#endregion Organized Movie Lists End
 
 
+  //#region Get Movie By Id
 
-
-  //Get all movies info
-  getBaseInfoList(): Observable<MovieBaseInfo[]> {
-    let url = `${this.URL}/Movies/info/list`;
-    return this.http.get<MovieBaseInfo[]>(url);
+  //Get Movie Info 
+  readMovieInfo(id: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-info/${id}`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorHandler)
+    );
   }
 
-  //Get all movies production
-  getProductionList(): Observable<MovieProduction[]> {
-    let url = `${this.URL}/Movies/production/list`;
-    return this.http.get<MovieProduction[]>(url);
+  //Get Movie Production 
+  readMovieProduction(id: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-production/${id}`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorHandler)
+    );
   }
 
-  //Get all movies files
-  getAllMediaFiles(): Observable<MovieClip[]> {
-    let url = `${this.URL}/Movies/mediafiles/list`;
-    return this.http.get<MovieClip[]>(url);
+  //Get Movie Files 
+  readMovieFiles(id: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-files/${id}`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorHandler)
+    );
   }
 
+  //#endregion Get Movie End
 
 
 
-
-
-
-//Error handling
-errorHandler(ex: HttpErrorResponse) {
-  let errorMessage = '';
-  if (ex.error instanceof ErrorEvent) {
-    //Get client-side error
-    errorMessage = ex.error.message;
+  //Error handling
+  errorHandler(ex: HttpErrorResponse) {
+    let errorMessage = '';
+    if (ex.error instanceof ErrorEvent) {
+      //Get client-side error
+      errorMessage = ex.error.message;
+    }
+    else{
+      //Get server-side erro
+      errorMessage = `Error Code: ${ex.status}\nMessage: ${ex.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
   }
-  else{
-    //Get server-side erro
-    errorMessage = `Error Code: ${ex.status}\nMessage: ${ex.message}`;
-  }
-  console.log(errorMessage);
-  return throwError(() => {
-    return errorMessage;
-  });
-}
-
 }

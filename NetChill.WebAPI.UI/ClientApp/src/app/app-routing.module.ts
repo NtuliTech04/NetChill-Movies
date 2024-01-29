@@ -10,6 +10,7 @@ import { MovieProductionComponent } from './presentation/admin/movie/movie-detai
 import { MovieClipComponent } from './presentation/admin/movie/movie-details/movie-clip/movie-clip.component';
 import { SelectedMovieComponent } from './presentation/user/streaming/selected-movie/selected-movie.component';
 import { SelectedUpcomingComponent } from './presentation/user/streaming/upcoming-movies/selected-upcoming/selected-upcoming.component';
+import { CarouselFeaturedComponent } from './presentation/user/streaming/featured-movies/carousel-featured/carousel-featured.component';
 
 const routes: Routes = [
   //User Routes

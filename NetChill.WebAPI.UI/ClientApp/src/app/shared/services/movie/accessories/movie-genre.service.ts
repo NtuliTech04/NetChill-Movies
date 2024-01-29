@@ -20,10 +20,10 @@ export class MovieGenreService {
   }
 
   //Create movie genre
-createGenre(data: MovieGenre): Observable<any> {
-  let url = `${this.URL}/Genres/create`;
-  return this.http.post(url, data).pipe(catchError(this.errorHandler));
-}
+  createGenre(data: MovieGenre): Observable<any> {
+    let url = `${this.URL}/Genres/create`;
+    return this.http.post(url, data).pipe(catchError(this.errorHandler));
+  }
 
 
 

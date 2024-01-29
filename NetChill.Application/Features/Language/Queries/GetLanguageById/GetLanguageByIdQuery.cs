@@ -55,7 +55,6 @@ namespace NetChill.Application.Features.Language.Queries.GetLanguageById
             {
                 return await Result<GetLanguageByIdDto>.FailureAsync("Language Not Found.");
             }
-
         }
     }
 }

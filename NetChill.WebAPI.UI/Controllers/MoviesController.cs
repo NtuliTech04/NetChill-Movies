@@ -5,7 +5,6 @@ using NetChill.Application.Features.Movie.BaseInfo.Commands.CreateInfo;
 using NetChill.Application.Features.Movie.Production.Commands.CreateProducuction;
 using NetChill.Shared;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllBaseInfo;
-using NetChill.Application.Features.Movie.Production.Queries.GetAllProduction;
 using NetChill.Application.Features.Movie.Clip.Queries.GetAllMovieClips;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllUpcoming;
 using NetChill.Application.Features.Movie.Clip.Queries.GetAllUpcomingMovieClips;
@@ -13,6 +12,9 @@ using NetChill.Application.Features.Movie.Clip.Queries.GetAllLatestMovieClips;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllLatestMoviesInfo;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllFeaturedMoviesInfo;
 using NetChill.Application.Features.Movie.Clip.Queries.GetAllFeaturedMovieClips;
+using NetChill.Application.Features.Movie.BaseInfo.Queries.GetMovieInfoById;
+using NetChill.Application.Features.Movie.Production.Queries.GetMovieProductionById;
+using NetChill.Application.Features.Movie.Clip.Queries.GetMovieClipByRef;
 
 namespace NetChill.WebAPI.UI.Controllers
 {
@@ -32,13 +34,6 @@ namespace NetChill.WebAPI.UI.Controllers
         public async Task<ActionResult<Result<List<GetAllBaseInfoDto>>>> ListMovieBaseInfoes()
         {
             return await _mediator.Send(new GetAllBaseInfoQuery());
-        }
-
-        //List Movie Productions
-        [HttpGet, Route("production/list")]
-        public async Task<ActionResult<Result<List<GetAllProductionDto>>>> ListMovieProductions()
-        {
-            return await _mediator.Send(new GetAllProductionQuery());
         }
 
         //List Movie Files
@@ -142,6 +137,30 @@ namespace NetChill.WebAPI.UI.Controllers
         #endregion
 
         #region Read Action Methods
+
+        //Get Movie Info By Id
+        [HttpGet, Route("read-info/{id}")]
+        public async Task<ActionResult<Result<GetMovieInfoByIdDto>>> GetMovieInfoById(Guid id)
+        {
+            return await _mediator.Send(new GetMovieInfoByIdQuery(id));
+        }
+
+
+        //Get Movie Production By Id
+        [HttpGet, Route("read-production/{id}")]
+        public async Task<ActionResult<Result<GetMovieProductionByRefDto>>> GetMovieProductionById(Guid id)
+        {
+            return await _mediator.Send(new GetMovieProductionByRefQuery(id));
+        }
+
+
+        //Get Movie Files By Id
+        [HttpGet, Route("read-files/{id}")]
+        public async Task<ActionResult<Result<GetMovieClipByRefDto>>> GetMovieFilesById(Guid id)
+        {
+            return await _mediator.Send(new GetMovieClipByRefQuery(id));
+        }
+
 
         #endregion
 

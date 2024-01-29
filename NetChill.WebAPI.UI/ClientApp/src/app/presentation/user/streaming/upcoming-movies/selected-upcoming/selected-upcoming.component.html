@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-3">
                 <div class="poster-panel">
-                    <img class="movie-poster" src="./../../../../../../assets/images/Sixty Minutes.jpg" alt="Movie Poster">
+                    <img class="movie-poster" #poster alt="Movie Poster">
                 </div>
             </div>
             <div class="col-9">
                 <div class="watch-trailer">
-                    <button class="btn btn-secondary"><i class="fa fa-video"></i> Watch Trailer</button>
+                    <button class="btn btn-secondary" [routerLink]="['/SelectedUpcoming', selectedMovieId]" fragment="watch-trailer"><i class="fa fa-video"></i> Watch Trailer</button>
                 </div>
-                <div class="movie-title"><h3>Sixty Minutes</h3></div>
+                <div class="movie-title"><h3>{{infoData.title}}</h3></div>
                 <div class="watch-options">
                     <span class="save" title="Save To Watch Later">
                         <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Save</button>
@@ -23,19 +23,19 @@
                     </span>
                 </div>
                 <div class="movie-summary mt-3">
-                    <p>On the brink of losing her home, Maddie finds an intriguing job listing: helicopter parents looking for someone to bring their introverted 19-year-old son out of his shell before college. She has one summer to make him a man or die trying.</p>
+                    <p>{{infoData.description}}</p>
                 </div>
                 <div class="movie-info">
                     <div class="row">
                         <div class="col-4">
-                            <span><b>Availabile On: </b>13 February 2024</span>
-                            <span><b>Genre: </b>Action, Thriller, Drama</span>
-                            <span><b>Languages: </b>English</span>
+                            <span><b>Availabile On: </b>{{dateToLongString(infoData.availableFrom)}}</span>
+                            <span><b>Genre: </b>{{infoData.genre}}</span>
+                            <span><b>Languages: </b>{{infoData.languages}}</span>
                         </div>
                         <div class="col-8">
-                            <span><b>Directors: </b>Yanga Dlamini</span>
-                            <span><b>Writers: </b>Lungelo Ndlovu, Minenhle Ntuli, Bongiwe Khumalo</span>
-                            <span><b>Stars: </b>Lusanda Langa, Lwazi Mzobe</span>
+                            <span><b>Directors: </b>{{productionData.directors}}</span>
+                            <span><b>Writers: </b>{{productionData.writers}}</span>
+                            <span><b>Stars: </b>{{productionData.movieStars}}</span>
                         </div>
                     </div>
                 </div>
@@ -43,6 +43,14 @@
         </div>
     </div>
     <div class="movie-trailer">
-      
+        <div class="youtube_player">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe id="watch-trailer" class="embed-responsive-item w-100" #trailer
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+              </div>
+        </div>
     </div>
 </div>

@@ -1,9 +1,9 @@
 ﻿using NetChill.Application.Common.Mappings;
 using NetChill.Domain.Entities.Movie;
 
-namespace NetChill.Application.Features.Movie.Production.Queries.GetAllProduction
+namespace NetChill.Application.Features.Movie.Production.Queries.GetMovieProductionById
 {
-    public class GetAllProductionDto : IMapFrom<MovieProduction>
+    public class GetMovieProductionByRefDto : IMapFrom<MovieProduction>
     {
         public int ProductionId { get; set; }
         public string Directors { get; set; }

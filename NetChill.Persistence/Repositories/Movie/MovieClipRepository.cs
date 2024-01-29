@@ -24,7 +24,16 @@ namespace NetChill.Persistence.Repositories.Movie
         //Custom methods defined within the respective repository as follows. 
 
         //Gets and sets the movie key to use within the uploading methods
-        public Guid MovieRef { get; set; } 
+        public Guid MovieRef { get; set; }
+
+      
+        //Get movie files by movie ref (fk)
+        public async Task<MovieClip> GetFilesByMovieRef(Guid movieRef)
+        {
+           return await _clipRepository.Entities
+                        .FirstOrDefaultAsync(x => x
+                        .MovieRef == movieRef);
+        }
 
 
         //Checks whether the MovieClip entity has already been reference by the same movie (MovieRef) or not

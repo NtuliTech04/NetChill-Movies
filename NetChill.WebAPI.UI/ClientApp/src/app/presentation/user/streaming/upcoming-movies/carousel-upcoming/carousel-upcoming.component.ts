@@ -125,6 +125,6 @@ export class CarouselUpcomingComponent implements OnInit {
 
     //Extract the month from date
     selectMonth(date: Date): string {
-      return this.datePipe.transform(date, 'MMM') || '';
+      return this.datePipe.transform(date, 'MMMM') || '';
     }
 }

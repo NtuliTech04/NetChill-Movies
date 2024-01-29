@@ -5,7 +5,6 @@ export class MovieClip {
   moviePosterPath: string;
   movieTrailerUrl: string;
   videoClipPath: string;
-  videoClipDuration: number;
   uploadDate: Date;
 
   movieRef: Guid;

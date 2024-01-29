@@ -1,4 +1,5 @@
-﻿using NetChill.Application.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;
 
@@ -6,11 +7,20 @@ namespace NetChill.Persistence.Repositories.Movie
 {
     public class MovieProductionRepository : IMovieProductionRepository
     {
-        private readonly IGenericRepository<MovieLanguage> _repository;
+        private readonly IGenericRepository<MovieProduction> _productionRepository;
 
-        public MovieProductionRepository(IGenericRepository<MovieLanguage> repository)
+        public MovieProductionRepository(IGenericRepository<MovieProduction> repository)
         {
-            _repository = repository;   
+            _productionRepository = repository;   
+        }
+
+
+        //Get movie production by movie reference (fk)
+        public async Task<MovieProduction> GetProductionByMovieRef(Guid movieRef)
+        {
+            return await _productionRepository.Entities
+                   .FirstOrDefaultAsync(x =>
+                   x.MovieRef == movieRef);
         }
     }
 }

@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-3">
                 <div class="poster-panel">
-                    <img class="movie-poster" src="./../../../../../assets/images/No Hard Feelings.jpg" alt="Movie Poster">
+                    <img class="movie-poster" #poster alt="Movie Poster">
                 </div>
             </div>
             <div class="col-9">
                 <div class="watch-now">
-                    <button class="btn btn-secondary"><i class="fa fa-play"></i> Watch Now</button>
+                    <a class="btn btn-secondary" [routerLink]="['/SelectedMovie', selectedMovieId]" fragment="watch-movie"><i class="fa fa-play"></i> Watch Now</a>
                 </div>
-                <div class="movie-title"><h3>No Hard Feelings</h3></div>
+                <div class="movie-title"><h3>{{infoData.title}}</h3></div>
                 <div class="watch-options">
                     <span class="save" title="Save To Watch Later">
                         <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Save</button>
@@ -23,20 +23,20 @@
                     </span>
                 </div>
                 <div class="movie-summary mt-3">
-                    <p>On the brink of losing her home, Maddie finds an intriguing job listing: helicopter parents looking for someone to bring their introverted 19-year-old son out of his shell before college. She has one summer to make him a man or die trying.</p>
+                    <p>{{infoData.description}}</p>
                 </div>
                 <div class="movie-info">
                     <div class="row">
                         <div class="col-4">
-                            <span><b>Year Released: </b>2023</span>
-                            <span><b>Genre: </b>Action, Comedy, Romance</span>
-                            <span><b>Languages: </b>English</span>
+                            <span><b>Year Released: </b>{{infoData.yearReleased}}</span>
+                            <span><b>Genre: </b>{{infoData.genre}}</span>
+                            <span><b>Languages: </b>{{infoData.languages}}</span>
                         </div>
                         <div class="col-8">
-                            <span><b>Duration:  </b>117 min</span>
-                            <span><b>Directors: </b>Yanga Dlamini</span>
-                            <span><b>Writers: </b>Lungelo Ndlovu, Minenhle Ntuli, Bongiwe Khumalo</span>
-                            <span><b>Stars: </b>Lusanda Langa, Lwazi Mzobe</span>
+                            <span><b>Duration:  </b>{{movieDuration}}</span>
+                            <span><b>Directors: </b>{{productionData.directors}}</span>
+                            <span><b>Writers: </b>{{productionData.writers}}</span>
+                            <span><b>Stars: </b>{{productionData.movieStars}}</span>
                         </div>
                     </div>
                 </div>
@@ -44,16 +44,7 @@
         </div>
     </div>
     <div class="movie-stream">
-    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/player.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
         <div class="video_player">
-            <video preload="metadata" class="main-video" controls>
-                <source src="./../../../../../assets/images/GUY RITCHIE’S THE COVENANT _ Official Trailer.mp4" size="720" type="video/mp4">
-                <track label="English" kind="subtitles" src="#" srclang="en">
-              </video>
+            <video id="watch-movie" preload="metadata" #clip controls></video>
         </div>
-
-    <!-- <script type="application/javascript" src="/assets/js/player.js"></script> -->
     </div>

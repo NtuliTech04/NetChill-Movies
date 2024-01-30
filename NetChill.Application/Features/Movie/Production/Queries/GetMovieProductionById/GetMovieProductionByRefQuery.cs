@@ -4,7 +4,6 @@ using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
-using NetChill.Domain.Entities.Movie;
 using NetChill.Shared;
 
 namespace NetChill.Application.Features.Movie.Production.Queries.GetMovieProductionById

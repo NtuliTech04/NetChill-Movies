@@ -37,6 +37,7 @@ export class MovieStreamingService {
 
   //#region  Organized Movie Lists
 
+  //#region Upcoming Movies
   //Get all upcoming movies info
   getUpcomingInfoList(): Observable<MovieBaseInfo[]> {
     let url = `${this.URL}/Movies/upcoming-info/list`;
@@ -48,7 +49,9 @@ export class MovieStreamingService {
     let url = `${this.URL}/Movies/upcoming-media/list`;
     return this.http.get<MovieClip[]>(url);
   }
+  //#endregion
 
+  //#region Latest (New Movies)
   //Get all latest movies info
   getLatestInfoList(): Observable<MovieBaseInfo[]> {
     let url = `${this.URL}/Movies/latest-info/list`;
@@ -60,7 +63,9 @@ export class MovieStreamingService {
     let url = `${this.URL}/Movies/latest-media/list`;
     return this.http.get<MovieClip[]>(url);
   }
+  //#endregion
   
+  //#region  Featured Movies
   //Get all featured movies info
   getFeaturedInfoList(): Observable<MovieBaseInfo[]> {
     let url = `${this.URL}/Movies/featured-info/list`;
@@ -72,11 +77,12 @@ export class MovieStreamingService {
     let url = `${this.URL}/Movies/featured-media/list`;
     return this.http.get<MovieClip[]>(url);
   }
+  //#endregion
 
-  //#endregion Organized Movie Lists End
+  //#endregion
 
 
-  //#region Get Movie By Id
+  //#region Get Movie Data By Id/Ref
 
   //Get Movie Info 
   readMovieInfo(id: Guid): Observable<any> {
@@ -90,8 +96,8 @@ export class MovieStreamingService {
   }
 
   //Get Movie Production 
-  readMovieProduction(id: Guid): Observable<any> {
-    let url = `${this.URL}/Movies/read-production/${id}`;
+  readMovieProduction(ref: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-production/${ref}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -101,8 +107,8 @@ export class MovieStreamingService {
   }
 
   //Get Movie Files 
-  readMovieFiles(id: Guid): Observable<any> {
-    let url = `${this.URL}/Movies/read-files/${id}`;
+  readMovieFiles(ref: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-files/${ref}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -111,7 +117,7 @@ export class MovieStreamingService {
     );
   }
 
-  //#endregion Get Movie End
+  //#endregion
 
 
 

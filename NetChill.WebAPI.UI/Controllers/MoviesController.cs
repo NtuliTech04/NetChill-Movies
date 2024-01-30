@@ -1,9 +1,9 @@
 ﻿using MediatR;
+using NetChill.Shared;
 using Microsoft.AspNetCore.Mvc;
 using NetChill.Application.Features.Movie.Clip.Commands.CreateClip;
 using NetChill.Application.Features.Movie.BaseInfo.Commands.CreateInfo;
 using NetChill.Application.Features.Movie.Production.Commands.CreateProducuction;
-using NetChill.Shared;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllBaseInfo;
 using NetChill.Application.Features.Movie.Clip.Queries.GetAllMovieClips;
 using NetChill.Application.Features.Movie.BaseInfo.Queries.GetAllUpcoming;
@@ -27,7 +27,7 @@ namespace NetChill.WebAPI.UI.Controllers
             _mediator = mediator;
         }
 
-        #region List Action Methods
+        #region List All Action Methods
 
         //List Movie BaseInfoes
         [HttpGet, Route("info/list")]
@@ -146,19 +146,19 @@ namespace NetChill.WebAPI.UI.Controllers
         }
 
 
-        //Get Movie Production By Id
-        [HttpGet, Route("read-production/{id}")]
-        public async Task<ActionResult<Result<GetMovieProductionByRefDto>>> GetMovieProductionById(Guid id)
+        //Get Movie Production By MovieRef
+        [HttpGet, Route("read-production/{ref}")]
+        public async Task<ActionResult<Result<GetMovieProductionByRefDto>>> GetMovieProductionByRef(Guid moveiRef)
         {
-            return await _mediator.Send(new GetMovieProductionByRefQuery(id));
+            return await _mediator.Send(new GetMovieProductionByRefQuery(moveiRef));
         }
 
 
-        //Get Movie Files By Id
-        [HttpGet, Route("read-files/{id}")]
-        public async Task<ActionResult<Result<GetMovieClipByRefDto>>> GetMovieFilesById(Guid id)
+        //Get Movie Files By MovieRef
+        [HttpGet, Route("read-files/{ref}")]
+        public async Task<ActionResult<Result<GetMovieClipByRefDto>>> GetMovieFilesById(Guid moveiRef)
         {
-            return await _mediator.Send(new GetMovieClipByRefQuery(id));
+            return await _mediator.Send(new GetMovieClipByRefQuery(moveiRef));
         }
 
 

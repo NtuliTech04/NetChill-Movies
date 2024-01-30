@@ -15,8 +15,8 @@ export class MovieClipService {
 
 
   //Upload Movie Files
-  uploadMovieFiles(id: Guid, data: FormData): Observable<any> {
-    let url = `${this.URL}/Movies/mediafiles/${id}`;
+  uploadMovieFiles(ref: Guid, data: FormData): Observable<any> {
+    let url = `${this.URL}/Movies/mediafiles/${ref}`;
     return this.http.post(url, data).pipe(catchError(this.errorHandler));
   }
 

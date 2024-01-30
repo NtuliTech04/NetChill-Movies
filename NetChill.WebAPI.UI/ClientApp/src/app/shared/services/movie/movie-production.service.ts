@@ -16,10 +16,9 @@ export class MovieProductionService {
   constructor(private http: HttpClient) { }
 
   //Create Movie Production
-  creatMovieProduction(id: Guid, data: MovieProduction): Observable<any> {
-    let url = `${this.URL}/Movies/production/${id}`;
-    return this.http
-    .post(url, data, { headers: this.headers })
+  creatMovieProduction(ref: Guid, data: MovieProduction): Observable<any> {
+    let url = `${this.URL}/Movies/production/${ref}`;
+    return this.http.post(url, data, { headers: this.headers })
     .pipe(catchError(this.errorHandler));
   }
 

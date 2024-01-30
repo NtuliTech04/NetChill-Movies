@@ -36,7 +36,7 @@ export class SelectedUpcomingComponent implements OnInit, AfterViewInit, OnDestr
   productionData: MovieProduction = new MovieProduction;;
   mediaData: MovieClip = new MovieClip;
 
-  private routerSubscription: Subscription | undefined;
+  private subscription: Subscription | undefined;
 
   constructor (
     private streamingService: MovieStreamingService,
@@ -136,21 +136,22 @@ export class SelectedUpcomingComponent implements OnInit, AfterViewInit, OnDestr
   
   //#region Dispose Functions
   ngAfterViewInit(): void {
-    this.routerSubscription = this.router.events.subscribe(event => {
+    const currentUrl = this.router.url;
+    this.subscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-
-      }
-      else if (event instanceof NavigationEnd) { 
-
-      }
-      else{
-
+        if(event.url != currentUrl && event.url != currentUrl+'#watch-trailer'){
+          this.infoData = null;
+          this.productionData =null;
+          this.mediaData = null;
+          this.posterView.nativeElement.src = '';
+          this.movieTrailer.nativeElement.src = ''; 
+        }
       }
     });
   }
 
   ngOnDestroy(): void {
-    this.routerSubscription?.unsubscribe();
+    this.subscription?.unsubscribe();
   }
   //#endregion
 }

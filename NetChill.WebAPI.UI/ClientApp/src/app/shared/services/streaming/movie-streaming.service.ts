@@ -96,8 +96,8 @@ export class MovieStreamingService {
   }
 
   //Get Movie Production 
-  readMovieProduction(ref: Guid): Observable<any> {
-    let url = `${this.URL}/Movies/read-production/${ref}`;
+  readMovieProduction(id: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-production/${id}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -107,8 +107,8 @@ export class MovieStreamingService {
   }
 
   //Get Movie Files 
-  readMovieFiles(ref: Guid): Observable<any> {
-    let url = `${this.URL}/Movies/read-files/${ref}`;
+  readMovieFiles(id: Guid): Observable<any> {
+    let url = `${this.URL}/Movies/read-files/${id}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};

@@ -147,18 +147,18 @@ namespace NetChill.WebAPI.UI.Controllers
 
 
         //Get Movie Production By MovieRef
-        [HttpGet, Route("read-production/{ref}")]
-        public async Task<ActionResult<Result<GetMovieProductionByRefDto>>> GetMovieProductionByRef(Guid moveiRef)
+        [HttpGet, Route("read-production/{id}")]
+        public async Task<ActionResult<Result<GetMovieProductionByRefDto>>> GetMovieProductionByRef(Guid id)
         {
-            return await _mediator.Send(new GetMovieProductionByRefQuery(moveiRef));
+            return await _mediator.Send(new GetMovieProductionByRefQuery(id));
         }
 
 
         //Get Movie Files By MovieRef
-        [HttpGet, Route("read-files/{ref}")]
-        public async Task<ActionResult<Result<GetMovieClipByRefDto>>> GetMovieFilesById(Guid moveiRef)
+        [HttpGet, Route("read-files/{id}")]
+        public async Task<ActionResult<Result<GetMovieClipByRefDto>>> GetMovieFilesById(Guid id)
         {
-            return await _mediator.Send(new GetMovieClipByRefQuery(moveiRef));
+            return await _mediator.Send(new GetMovieClipByRefQuery(id));
         }
 
 

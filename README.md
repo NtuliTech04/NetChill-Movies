@@ -48,3 +48,10 @@ __NB: Open Visual Studio 2022 or Latest__
 
 * Set startup project to WebAPI (Presentation Layer)
 * Restore NugetPackages if needed. Do not update, but restore.   
+
+
+# Screenshots
+
+## Project Structure
+<img alt="project structure" src="/src/assets/images/screenshots/Project Structure.png">
+

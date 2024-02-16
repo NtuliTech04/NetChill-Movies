@@ -1,35 +1,3 @@
-nav.sorting-nav {
-    background-color: #e5f3ff;
-    border-bottom: 5px solid #d3d3d3;
-    line-height: 40px;
-}
-
-nav.sorting-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav.sorting-nav ul li {
-    position: relative;
-    display: inline-block;
-    margin: 0 10px;
-    color: #777;
-}
-
-nav.sorting-nav ul li a {
-    font-size: 15px;
-    padding: 10px;
-    color: #777;
-    text-decoration: none;
-}
-
-nav.sorting-nav ul li a:hover {
-    background-color: #d3d3d3;
-    color: #1f2020;
-    transition: all ease 0.5s;
-}
-
 .movies-content {
     background-color: #e5f3ff;
 }

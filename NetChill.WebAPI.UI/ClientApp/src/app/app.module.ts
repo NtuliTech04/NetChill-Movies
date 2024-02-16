@@ -42,6 +42,8 @@ import { CarouselFeaturedComponent } from './presentation/user/streaming/feature
 import { CarouselLatestComponent } from './presentation/user/streaming/latest-movies/carousel-latest/carousel-latest.component';
 import { UserSearchComponent } from './presentation/user/user-search/user-search.component';
 import { SearchResultsComponent } from './presentation/user/user-search/search-results/search-results.component';
+import { FilterSortComponent } from './presentation/user/filter-sort/filter-sort.component';
+import { FilterSortResultsComponent } from './presentation/user/filter-sort/filter-sort-results/filter-sort-results.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { SearchResultsComponent } from './presentation/user/user-search/search-r
     CarouselFeaturedComponent,
     CarouselLatestComponent,
     UserSearchComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    FilterSortComponent,
+    FilterSortResultsComponent
   ],
   imports: [
     BrowserModule,

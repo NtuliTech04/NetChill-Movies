@@ -1,31 +1,5 @@
 <div class="chill-home">
-    <div class="mini-banner">
-        <nav class="sorting-nav">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-4">
-                        <ul class="responsive-tabs">
-                            <li>NetChill Movie Streaming Website</li>
-                            <!-- <li>Results: >>>
-                                <span class="link-info">
-                                    Popular Movies
-                                </span>
-                            </li> -->
-                        </ul>
-                    </div>
-                    <div class="col-8 text-end">
-                        <ul class="responsive-tabs">
-                            <li><a href="#">A-Z</a></li>
-                            <li><a href="#">Genre</a></li>
-                            <li><a href="#">Recent</a></li>
-                            <li><a href="#">Popular</a></li>
-                            <li><a href="#">Year</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav> 
-    </div>
+    <app-filter-sort></app-filter-sort>
     <div class="movies-content container-fluid">
         <!---Upcoming movies owl-carousel--->
         <app-carousel-upcoming id="upcoming"></app-carousel-upcoming>

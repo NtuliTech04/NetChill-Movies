@@ -1,14 +1,50 @@
-# NetChill Moveis
+# NetChill Online Movie Streaming Website 
 
-# Angular ClientApp
--> On VS Code terminal, Run command: "npm install --legacy-peer-deps"
-The above command will install all needed angular packages.
+## Software Design Principle - Clean Architecture 
 
-To start ClientApp, Run command: "ng serve -o" 
+1. Core
+	* Domain Layer
+	* Application Layer
 
-Admin - http://localhost:4200/#/Dashboard
-User - http://localhost:4200/#/Home
+2. Infrastructure
+	* Infrastructure Layer
+	* IoC Layer (Inversion of Control)
+	* Persistence Layer
 
-# ASP.Net Core 6 WebAPI
--> On Visual Studio, start WebAPI (Presentation Project). 
--> Restore NugetPackages if needed. Do not update, but restore.   
+3. Presentation
+	* Angular 16 (ClientApp)
+	* ASP.Net Core 6 WebAPI (API)
+
+4. Shared 
+
+
+# How it works!
+
+## Angular 16 - ClientApp
+
+__NB: Open ClientApp on VS Code__
+
+### Installation Guid
+
+__On VS Code terminal: Run command -__ "npm install --legacy-peer-deps"
+
+The above command will install all required angular packages.
+
+### Run Application
+
+__To start ClientApp, Run command:__ "ng serve -o"
+
+
+### URL Navigations
+
+__Admin__ - http://localhost:4200/#/Dashboard
+__User__ - http://localhost:4200/#/Home
+
+
+
+## ASP.Net Core 6 WebAPI 
+
+__NB: Open Visual Studio 2022 or Latest__
+
+* Set startup project to WebAPI (Presentation Layer)
+* Restore NugetPackages if needed. Do not update, but restore.   

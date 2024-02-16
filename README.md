@@ -54,3 +54,15 @@ __NB: Open Visual Studio 2022 or Latest__
 
 ## Project Structure
 <img alt="project structure" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Project Structure.png">
+
+## Landing Page
+<img alt="landing page" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Landing Page.png">
+
+## Upcoming Movie
+<img alt="upcoming movie" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Upcoming Movie.png">
+
+## Movie Detail
+<img alt="movie details" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Movie Details.png">
+
+## Upload Movie Files
+<img alt="upload files" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Movie files upload.png">

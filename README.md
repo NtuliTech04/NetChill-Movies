@@ -37,8 +37,8 @@ __To start ClientApp, Run command:__ "ng serve -o"
 
 ### URL Navigations
 
-__Admin__ - http://localhost:4200/#/Dashboard
-__User__ - http://localhost:4200/#/Home
+* __Admin__ - http://localhost:4200/#/Dashboard
+* __User__ - http://localhost:4200/#/Home
 
 
 

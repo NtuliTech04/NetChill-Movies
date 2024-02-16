@@ -61,7 +61,7 @@ __NB: Open Visual Studio 2022 or Latest__
 ## Upcoming Movie
 <img alt="upcoming movie" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Upcoming Movie.png">
 
-## Movie Detail
+## Movie Details
 <img alt="movie details" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Movie Details.png">
 
 ## Upload Movie Files

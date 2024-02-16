@@ -53,5 +53,4 @@ __NB: Open Visual Studio 2022 or Latest__
 # Screenshots
 
 ## Project Structure
-<img alt="project structure" src="/assets/images/screenshots/Project Structure.png">
-
+<img alt="project structure" src="./NetChill.WebAPI.UI/ClientApp/src/assets/images/screenshots/Project Structure.png">

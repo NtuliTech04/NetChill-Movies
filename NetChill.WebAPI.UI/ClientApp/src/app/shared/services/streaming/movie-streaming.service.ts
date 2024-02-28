@@ -17,7 +17,6 @@ export class MovieStreamingService {
 
   constructor(private http: HttpClient) { }
 
-
   //#region All Movies Lists
 
   //Get all movies info
@@ -118,7 +117,6 @@ export class MovieStreamingService {
   }
 
   //#endregion
-
 
 
   //Error handling

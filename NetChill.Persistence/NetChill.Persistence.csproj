@@ -19,6 +19,7 @@
 	  </PackageReference>
 	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
 	  <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.25" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
 	</ItemGroup>
 
 	<ItemGroup>

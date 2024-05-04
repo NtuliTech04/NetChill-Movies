@@ -8,4 +8,8 @@
 		<NoWarn>$(NoWarn);CS8632</NoWarn>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
+	</ItemGroup>
+
 </Project>

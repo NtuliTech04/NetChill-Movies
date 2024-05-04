@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NetChill.Persistence.Migrations.NetChillDb
+namespace NetChill.Persistence.Migrations
 {
     public partial class InitialMigration : Migration
     {
@@ -55,6 +55,7 @@ namespace NetChill.Persistence.Migrations.NetChillDb
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Languages = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsFeatured = table.Column<bool>(type: "bit", nullable: false),
+                    IsUpcoming = table.Column<bool>(type: "bit", nullable: false),
                     YearReleased = table.Column<int>(type: "int", nullable: false),
                     AvailableFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AvgRating = table.Column<double>(type: "float", nullable: true),

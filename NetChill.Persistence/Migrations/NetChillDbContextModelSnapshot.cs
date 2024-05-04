@@ -3,19 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetChill.Persistence.Contexts;
 
 #nullable disable
 
-namespace NetChill.Persistence.Migrations.NetChillDb
+namespace NetChill.Persistence.Migrations
 {
     [DbContext(typeof(NetChillDbContext))]
-    [Migration("20240123220034_InitialMigrate")]
-    partial class InitialMigrate
+    partial class NetChillDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,6 +47,9 @@ namespace NetChill.Persistence.Migrations.NetChillDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsFeatured")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsUpcoming")
                         .HasColumnType("bit");
 
                     b.Property<string>("Languages")

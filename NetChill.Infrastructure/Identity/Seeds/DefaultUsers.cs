@@ -12,7 +12,7 @@ namespace NetChill.Infrastructure.Identity.Seeds
             var appUser1 = new ApplicationUser()
             {
                 UserName = "super.admin",
-                Email = "super.admin@netchill.com",
+                Email = "super.admin@netchill.net",
                 FirstName = "Super",
                 LastName = "Admin",
                 EmailConfirmed = true,
@@ -35,7 +35,7 @@ namespace NetChill.Infrastructure.Identity.Seeds
             var appUser2 = new ApplicationUser()
             {
                 UserName = "yanga.ntuli",
-                Email = "yanga.ntuli@nagarro.com",
+                Email = "yanga.ntuli@netchill.net",
                 FirstName = "Yanga",
                 LastName = "Ntuli",
                 EmailConfirmed = true,

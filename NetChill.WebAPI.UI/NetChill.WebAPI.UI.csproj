@@ -13,6 +13,13 @@
 </PropertyGroup>
 
 <ItemGroup>
+  <Compile Remove="ClientApp\.git\**" />
+  <Content Remove="ClientApp\.git\**" />
+  <EmbeddedResource Remove="ClientApp\.git\**" />
+  <None Remove="ClientApp\.git\**" />
+</ItemGroup>
+
+<ItemGroup>
   <Compile Include="ClientApp\node_modules\node-gyp\lib\Find-VisualStudio.cs" />
 </ItemGroup>
 
@@ -2832,55 +2839,6 @@
   <None Include="ClientApp\.angular\cache\16.2.10\angular-webpack\e410dd69f424c7460ecbd029392aecd24009f606\9.pack" />
   <None Include="ClientApp\.angular\cache\16.2.10\angular-webpack\e410dd69f424c7460ecbd029392aecd24009f606\index.pack" />
   <None Include="ClientApp\.angular\cache\16.2.10\angular-webpack\e410dd69f424c7460ecbd029392aecd24009f606\index.pack.old" />
-  <None Include="ClientApp\.git\COMMIT_EDITMSG" />
-  <None Include="ClientApp\.git\config" />
-  <None Include="ClientApp\.git\description" />
-  <None Include="ClientApp\.git\HEAD" />
-  <None Include="ClientApp\.git\hooks\applypatch-msg.sample" />
-  <None Include="ClientApp\.git\hooks\commit-msg.sample" />
-  <None Include="ClientApp\.git\hooks\fsmonitor-watchman.sample" />
-  <None Include="ClientApp\.git\hooks\post-update.sample" />
-  <None Include="ClientApp\.git\hooks\pre-applypatch.sample" />
-  <None Include="ClientApp\.git\hooks\pre-commit.sample" />
-  <None Include="ClientApp\.git\hooks\pre-merge-commit.sample" />
-  <None Include="ClientApp\.git\hooks\pre-push.sample" />
-  <None Include="ClientApp\.git\hooks\pre-rebase.sample" />
-  <None Include="ClientApp\.git\hooks\pre-receive.sample" />
-  <None Include="ClientApp\.git\hooks\prepare-commit-msg.sample" />
-  <None Include="ClientApp\.git\hooks\push-to-checkout.sample" />
-  <None Include="ClientApp\.git\hooks\update.sample" />
-  <None Include="ClientApp\.git\index" />
-  <None Include="ClientApp\.git\info\exclude" />
-  <None Include="ClientApp\.git\logs\HEAD" />
-  <None Include="ClientApp\.git\logs\refs\heads\master" />
-  <None Include="ClientApp\.git\objects\01\78ee94cc857fc11098e04be0f446ef9da70b39" />
-  <None Include="ClientApp\.git\objects\02\972627f8df364102ce4ede71c8bd5f3660e1d8" />
-  <None Include="ClientApp\.git\objects\07\11527ef9d5c117396e6c03290a76658e6384ed" />
-  <None Include="ClientApp\.git\objects\10\d066f35a22aa8094b8d517242f3434a174f868" />
-  <None Include="ClientApp\.git\objects\20\8e14746d5ad4a892b491aaf70fc4951cf191e3" />
-  <None Include="ClientApp\.git\objects\2a\0fbf18f85102cf57069c7da940f6a0d4de6101" />
-  <None Include="ClientApp\.git\objects\37\4cc9d294aabd995598a0a2ad4eb99cf0ea3dfd" />
-  <None Include="ClientApp\.git\objects\51\e374bcdb1622c6bb205778aa9cba2693caa916" />
-  <None Include="ClientApp\.git\objects\59\d9a3a3e73ffc640517ef488f6f89d6270195d1" />
-  <None Include="ClientApp\.git\objects\6b\6c88636392e840b9d85d419e012332888ce385" />
-  <None Include="ClientApp\.git\objects\77\b374577de83b86d846eadda2dd17532d7dabaa" />
-  <None Include="ClientApp\.git\objects\90\d4ee0072ce3fc41812f8af910219f9eea3c3de" />
-  <None Include="ClientApp\.git\objects\92\30107df0b2e7a6d1f5540690472cb901de5b91" />
-  <None Include="ClientApp\.git\objects\92\5af837050a4abe679c5fea0df7e41faf6fc011" />
-  <None Include="ClientApp\.git\objects\99\7406ad22c29aae95893fb3d666c30258a09537" />
-  <None Include="ClientApp\.git\objects\a2\98b5bd8796ac377fe9ed64caa249e24c7ec3b6" />
-  <None Include="ClientApp\.git\objects\b1\c6c96a9de8f091f39b3b8feb7e29cfcfb1ed81" />
-  <None Include="ClientApp\.git\objects\be\7e9da76f7b2d7c73c119589e3b77008e66f5a8" />
-  <None Include="ClientApp\.git\objects\c3\c1b21329f4e257290db5a76ab3f86ca4df684a" />
-  <None Include="ClientApp\.git\objects\c4\79eca75961a566652e18b6b6a9ab80cb97d2bd" />
-  <None Include="ClientApp\.git\objects\c5\8dc05cbc6d094a9ed44203c6b69b74e5294452" />
-  <None Include="ClientApp\.git\objects\d5\64d0bc3dd917926892c55e3706cc116d5b165e" />
-  <None Include="ClientApp\.git\objects\d7\2b69a40227bb17d7f49e25c572757a63975d8a" />
-  <None Include="ClientApp\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391" />
-  <None Include="ClientApp\.git\objects\ed\966d43afa55368b184ea967e1c1ef4df0b4caa" />
-  <None Include="ClientApp\.git\objects\f6\621540583d1da628a0e4b63dbeb9c2c2f0467c" />
-  <None Include="ClientApp\.git\objects\f6\9aef13b7baf403e85853671829e521931f4e35" />
-  <None Include="ClientApp\.git\refs\heads\master" />
   <None Include="ClientApp\node_modules\%40ampproject\remapping\dist\remapping.mjs" />
   <None Include="ClientApp\node_modules\%40ampproject\remapping\dist\remapping.mjs.map" />
   <None Include="ClientApp\node_modules\%40ampproject\remapping\dist\remapping.umd.js" />

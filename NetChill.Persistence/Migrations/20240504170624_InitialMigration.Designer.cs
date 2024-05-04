@@ -9,11 +9,11 @@ using NetChill.Persistence.Contexts;
 
 #nullable disable
 
-namespace NetChill.Persistence.Migrations.NetChillDb
+namespace NetChill.Persistence.Migrations
 {
     [DbContext(typeof(NetChillDbContext))]
-    [Migration("20240127163134_NewInfoColumn")]
-    partial class NewInfoColumn
+    [Migration("20240504170624_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

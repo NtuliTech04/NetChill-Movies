@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NetChill.Persistence.Migrations
+namespace NetChill.Persistence.Migrations.IdentityDb
 {
     public partial class InitialMigration : Migration
     {

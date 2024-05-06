@@ -39,7 +39,7 @@ namespace NetChill.Application.Features.Language.Commands.DeleteLanguage
 
         public async Task<Result<int>> Handle(DeleteLanguageCommand command, CancellationToken cancellationToken)
         {
-            var language = await _unitOfWork.Repository<MovieLanguage>().GetByIntIdAsync(command.LanguageId);
+            var language = await _unitOfWork.Repository<MovieLanguage>().GetByIdAsync(command.LanguageId);
 
             if (language != null)
             {
@@ -54,7 +54,7 @@ namespace NetChill.Application.Features.Language.Commands.DeleteLanguage
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

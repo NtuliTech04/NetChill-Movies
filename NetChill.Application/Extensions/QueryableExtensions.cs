@@ -12,7 +12,8 @@ namespace NetChill.Application.Extensions
             this IQueryable<T> source, 
             int pageNumber, int pageSize, 
             CancellationToken cancellationToken
-        ) where T : class
+        )
+        where T : class
         {
             pageNumber = pageNumber == 0 ? 1 : pageNumber;
             pageSize = pageSize == 0 ? 10 : pageSize;

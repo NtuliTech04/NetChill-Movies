@@ -15,19 +15,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9E7545
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{370DB3DE-FFF2-4FAA-B0A9-9409CECCF1D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.Domain", "NetChill.Domain\NetChill.Domain.csproj", "{961879BB-9B49-4C77-A168-3B9A21ED65E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.Domain", "NetChill.Domain\NetChill.Domain.csproj", "{961879BB-9B49-4C77-A168-3B9A21ED65E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.Application", "NetChill.Application\NetChill.Application.csproj", "{B7FA9E2F-285A-4E24-995D-F6F3A885357D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.Application", "NetChill.Application\NetChill.Application.csproj", "{B7FA9E2F-285A-4E24-995D-F6F3A885357D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.Infrastructure", "NetChill.Infrastructure\NetChill.Infrastructure.csproj", "{EF8EDA6C-EAA8-4836-8A03-E1264E084554}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.Infrastructure", "NetChill.Infrastructure\NetChill.Infrastructure.csproj", "{EF8EDA6C-EAA8-4836-8A03-E1264E084554}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.IoC", "NetChill.IoC\NetChill.IoC.csproj", "{FD7ACD84-C819-418A-9BAA-C84FD4D63787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.IoC", "NetChill.IoC\NetChill.IoC.csproj", "{FD7ACD84-C819-418A-9BAA-C84FD4D63787}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.Persistence", "NetChill.Persistence\NetChill.Persistence.csproj", "{E37989A8-7090-48BE-9B88-5E58A497C071}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.Persistence", "NetChill.Persistence\NetChill.Persistence.csproj", "{E37989A8-7090-48BE-9B88-5E58A497C071}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.Shared", "NetChill.Shared\NetChill.Shared.csproj", "{024D35AF-98E9-4A3B-B036-17E6927AC719}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.Shared", "NetChill.Shared\NetChill.Shared.csproj", "{024D35AF-98E9-4A3B-B036-17E6927AC719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.WebAPI.UI", "NetChill.WebAPI.UI\NetChill.WebAPI.UI.csproj", "{B9F304A5-E6E2-41C9-A837-605D73CF138D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetChill.WebAPI.UI", "NetChill.WebAPI.UI\NetChill.WebAPI.UI.csproj", "{B9F304A5-E6E2-41C9-A837-605D73CF138D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChill.Architecture.Tests", "NetChill.Architecture.Tests\NetChill.Architecture.Tests.csproj", "{A3833534-C0F0-4720-ACF8-AD6D306FBE48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{B9F304A5-E6E2-41C9-A837-605D73CF138D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9F304A5-E6E2-41C9-A837-605D73CF138D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F304A5-E6E2-41C9-A837-605D73CF138D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3833534-C0F0-4720-ACF8-AD6D306FBE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3833534-C0F0-4720-ACF8-AD6D306FBE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3833534-C0F0-4720-ACF8-AD6D306FBE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3833534-C0F0-4720-ACF8-AD6D306FBE48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{E37989A8-7090-48BE-9B88-5E58A497C071} = {4A0BFCD9-8FCC-4489-8B1B-107F09E71604}
 		{024D35AF-98E9-4A3B-B036-17E6927AC719} = {9E7545FF-B55C-44D0-AD09-57080965D46C}
 		{B9F304A5-E6E2-41C9-A837-605D73CF138D} = {370DB3DE-FFF2-4FAA-B0A9-9409CECCF1D1}
+		{A3833534-C0F0-4720-ACF8-AD6D306FBE48} = {50B6F84B-2F20-4BB0-B743-0F57AC25D707}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2005CB64-F11C-464A-AD79-0A27BBE7B2AD}

@@ -38,37 +38,20 @@ namespace NetChill.Persistence.Repositories
         }
 
 
-        //ReadBy int Id Method
-        public async Task<T> GetByIntIdAsync(int intId)
+        //ReadBy Entity Id Method
+        public async Task<T> GetByIdAsync(object entityId)
         {
-            return await _dbContext.Set<T>().FindAsync(intId);
+            return await _dbContext.Set<T>().FindAsync(entityId);
         }
 
-
-        //ReadBy Guid Id Method
-        public async Task<T> GetByGuidIdAsync(Guid guidId)
-        {
-            return await _dbContext.Set<T>().FindAsync(guidId);
-        }
-
-
-        //Update Where Id is int Method
-        public Task UpdateAsyncWithIntId(T entity)
-        {
-            T exist = _dbContext.Set<T>().Find(entity.IntId);
-            _dbContext.Entry(exist).CurrentValues.SetValues(entity);
-            return Task.CompletedTask;
-        }
-
-
-        //Update Where Id is Guid Method
-        public Task UpdateAsyncWithGuidId(T entity)
-        {
-            T exist = _dbContext.Set<T>().Find(entity.GuidId);
-            _dbContext.Entry(exist).CurrentValues.SetValues(entity);
-            return Task.CompletedTask;
-        }
         
+        //Update Method
+        public Task UpdateAsync(T entity)
+        {
+            T exist = _dbContext.Set<T>().Find(entity.BaseId);
+            _dbContext.Entry(exist).CurrentValues.SetValues(entity);
+            return Task.CompletedTask;
+        }
 
         //Delete Method
         public Task DeleteAsync(T entity)
@@ -76,5 +59,42 @@ namespace NetChill.Persistence.Repositories
             _dbContext.Set<T>().Remove(entity);
             return Task.CompletedTask;
         }
+
+
+
+
+
+        ////ReadBy int Id Method
+        //public async Task<T> GetByIntIdAsync(object intId)
+        //{
+        //    return await _dbContext.Set<T>().FindAsync(intId);
+        //}
+
+
+        ////ReadBy Guid Id Method
+        //public async Task<T> GetByGuidIdAsync(object guidId)
+        //{
+        //    return await _dbContext.Set<T>().FindAsync(guidId);
+        //}
+
+
+        ////Update Where Id is int Method
+        //public Task UpdateAsyncWithIntId(T entity)
+        //{
+        //    //T exist = _dbContext.Set<T>().Find(entity.IntId);
+        //    T exist = _dbContext.Set<T>().Find(entity.BaseId);
+        //    _dbContext.Entry(exist).CurrentValues.SetValues(entity);
+        //    return Task.CompletedTask;
+        //}
+
+
+        ////Update Where Id is Guid Method
+        //public Task UpdateAsyncWithGuidId(T entity)
+        //{
+        //    //T exist = _dbContext.Set<T>().Find(entity.GuidId);
+        //    T exist = _dbContext.Set<T>().Find(entity.BaseId);
+        //    _dbContext.Entry(exist).CurrentValues.SetValues(entity);
+        //    return Task.CompletedTask;
+        //}
     }
 }

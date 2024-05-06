@@ -67,7 +67,7 @@ namespace NetChill.Application.Features.Movie.Clip.Commands.CreateClip
             }
             catch (Exception ex)
             {
-                throw new BadRequestException(ConstantText.MovieExistOrNull, ex);
+                throw new BadRequestException(ResponseConstants.MovieExistOrNull, ex);
             }
         }
     }

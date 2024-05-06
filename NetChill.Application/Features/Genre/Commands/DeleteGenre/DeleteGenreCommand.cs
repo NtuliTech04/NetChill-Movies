@@ -40,7 +40,7 @@ namespace NetChill.Application.Features.Genre.Commands.DeleteGenre
 
         public async Task<Result<int>> Handle(DeleteGenreCommand command, CancellationToken cancellationToken)
         {
-            var genre = await _unitOfWork.Repository<MovieGenre>().GetByIntIdAsync(command.GenreId);
+            var genre = await _unitOfWork.Repository<MovieGenre>().GetByIdAsync(command.GenreId);
 
             if (genre != null)
             {
@@ -55,7 +55,7 @@ namespace NetChill.Application.Features.Genre.Commands.DeleteGenre
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

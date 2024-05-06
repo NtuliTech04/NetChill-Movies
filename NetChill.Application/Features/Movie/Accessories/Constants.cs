@@ -1,12 +1,12 @@
 ﻿namespace NetChill.Application.Features.Movie.Accessories
 {
-    public class ConstantText
+    public class ResponseConstants
     {
         //Unknown Error (520)
         public const string Error520 = "Something Went Wrong!...";
 
         //Referencing a movie that has already been referenced or doesn't exist at all. 
-        #region MovieExistOrNull
+        #region Error Message
 
         const string movieExistOrNull = "Saving attempt was unsuccessful. Either this entity has already " +
                                         "been referenced with the same MovieRef which violates the rule of a " +
@@ -16,7 +16,7 @@
         #endregion
         public const string MovieExistOrNull = movieExistOrNull;
     }
-
+    
 
     public class MediaConstants
     {

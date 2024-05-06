@@ -1,10 +1,7 @@
-﻿using MediatR;
-using NetChill.Application.Interfaces.Repositories;
+﻿using NetChill.Application.Interfaces.Repositories;
 using NetChill.Application.Interfaces.Repositories.Movie;
 using NetChill.Domain.Entities.Movie;
 using NetChill.Application.Common.Exceptions;
-using Microsoft.EntityFrameworkCore;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using NetChill.Application.Features.Movie.Accessories;
 
 namespace NetChill.Persistence.Repositories.Movie
@@ -20,7 +17,7 @@ namespace NetChill.Persistence.Repositories.Movie
             _repository = repository;
         }
 
-        //Custom methods defined within the respective repository as follows. 
+        /** Custom methods defined within the respective repository as follows. **/ 
 
 
         //Initiates tracker for movie creation progress
@@ -39,7 +36,7 @@ namespace NetChill.Persistence.Repositories.Movie
             }
              catch (Exception ex)
             {
-                throw new BadRequestException(ConstantText.Error520, ex);
+                throw new BadRequestException(ResponseConstants.Error520, ex);
             }
         }
 
@@ -51,7 +48,10 @@ namespace NetChill.Persistence.Repositories.Movie
                 var movieTrcker = _repository.Entities.FirstOrDefault(x => x.MovieRef == Id);
 
                 //Sets the Tracker Id to the global IntId
-                movieTrcker.IntId = movieTrcker.Id; 
+                //Sets the Tracker Id to the Multitype BaseId
+
+                //movieTrcker.IntId = movieTrcker.Id; 
+                movieTrcker.BaseId = movieTrcker.Id;
 
                 if (movieTrcker.Progress == 100)
                 {
@@ -64,11 +64,11 @@ namespace NetChill.Persistence.Repositories.Movie
                     movieTrcker.Status = "Step 3: CreationComplete";
                 }
 
-                await _repository.UpdateAsyncWithIntId(movieTrcker);
+                await _repository.UpdateAsync(movieTrcker);
             }
             catch (Exception ex)
             {
-                throw new BadRequestException(ConstantText.Error520, ex);
+                throw new BadRequestException(ResponseConstants.Error520, ex);
             }
         }
     }

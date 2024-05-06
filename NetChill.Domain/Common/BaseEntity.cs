@@ -5,11 +5,20 @@ namespace NetChill.Domain.Common
     //Contains a collection of domain events and also some helper methods to add, remove and clear domain events from this collection.
     public abstract class BaseEntity
     {
-        [NotMapped]
-        public int IntId { get; set; }
-        
-        [NotMapped]
-        public Guid GuidId {  get; set; } 
+        #region Multitype Base Entity Key
+
+        public object BaseId { get; set; }
+
+        //[NotMapped]
+        //public int IntId { get; set; }
+
+        //[NotMapped]
+        //public Guid GuidId { get; set; }
+
+        //[NotMapped]
+        //public Guid StringId { get; set; }
+
+        #endregion
 
         private readonly List<BaseEvent> _domainEvents = new();
 

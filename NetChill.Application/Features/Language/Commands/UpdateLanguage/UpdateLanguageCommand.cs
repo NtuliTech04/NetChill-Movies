@@ -4,7 +4,6 @@ using NetChill.Application.Common.Exceptions;
 using NetChill.Application.Features.Movie.Accessories;
 using NetChill.Application.Interfaces.Repositories;
 using NetChill.Domain.Entities.Movie;
-using NetChill.Domain.Events.Genre;
 using NetChill.Domain.Events.Language;
 using NetChill.Shared;
 
@@ -31,26 +30,29 @@ namespace NetChill.Application.Features.Language.Commands.UpdateLanguage
 
         public async Task<Result<int>> Handle(UpdateLanguageCommand command, CancellationToken cancellationToken)
         {
-            var language = await _unitOfWork.Repository<MovieLanguage>().GetByIntIdAsync(command.LanguageId);
+            var language = await _unitOfWork.Repository<MovieLanguage>().GetByIdAsync(command.LanguageId);
 
             if (language != null)
             {
                 try
                 {
-                    language.IntId = command.LanguageId;
+                    //language.IntId = command.LanguageId;
+                    language.BaseId = command.LanguageId;
                     language.SpokenLanguage = command.SpokenLanguage;
                     language.LanguageNotes = command.LanguageNotes;
 
-                    await _unitOfWork.Repository<MovieLanguage>().UpdateAsyncWithIntId(language);
+                    await _unitOfWork.Repository<MovieLanguage>().UpdateAsync(language);
                     language.AddDomainEvent(new LanguageUpdatedEvent(language));
 
                     await _unitOfWork.Save(cancellationToken);
 
-                    return await Result<int>.SuccessAsync(language.IntId, "Language Updated Successfully.");
+                    //return await Result<int>.SuccessAsync(language.IntId, "Language Updated Successfully.");
+                    return await Result<int>.SuccessAsync(Convert.ToInt32(language.BaseId), "Language Updated Successfully.");
+
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else 

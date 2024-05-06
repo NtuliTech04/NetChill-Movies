@@ -1,4 +1,4 @@
-﻿namespace NetChill.Domain.Global
+﻿namespace NetChill.Domain.Constants
 {
     public class RegexExpressions
     {

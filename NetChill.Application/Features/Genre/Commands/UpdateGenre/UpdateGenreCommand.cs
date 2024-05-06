@@ -30,27 +30,29 @@ namespace NetChill.Application.Features.Genre.Commands.UpdateGenre
 
         public async Task<Result<int>> Handle(UpdateGenreCommand command, CancellationToken cancellationToken)
         {
-            var genre = await _unitOfWork.Repository<MovieGenre>().GetByIntIdAsync(command.GenreId);
+            var genre = await _unitOfWork.Repository<MovieGenre>().GetByIdAsync(command.GenreId);
 
             if (genre != null)
             {
                 try
                 {
-                    genre.IntId = command.GenreId;
+                    //genre.IntId = command.GenreId;
+                    genre.BaseId = command.GenreId;
                     genre.GenreName = command.GenreName;
                     genre.GenreDescription = command.GenreDescription;
 
-                    await _unitOfWork.Repository<MovieGenre>().UpdateAsyncWithIntId(genre);
+                    await _unitOfWork.Repository<MovieGenre>().UpdateAsync(genre);
                     genre.AddDomainEvent(new GenreUpdatedEvent(genre));
 
                     await _unitOfWork.Save(cancellationToken);
 
-                    return await Result<int>.SuccessAsync(genre.IntId, "Genre Updated Successfully");
+                    //return await Result<int>.SuccessAsync(genre.IntId, "Genre Updated Successfully");
+                    return await Result<int>.SuccessAsync(Convert.ToInt32(genre.BaseId), "Genre Updated Successfully");
 
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

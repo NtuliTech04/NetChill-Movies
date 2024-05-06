@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using NetChill.Domain.Common;
 using NetChill.Domain.Entities.Movie;
+using System.Reflection.Emit;
 
 namespace NetChill.Persistence.Configurations
 {
@@ -22,6 +24,9 @@ namespace NetChill.Persistence.Configurations
             builder.HasOne(rel => rel.TrackCreationProgress)
                 .WithOne(rel => rel.MovieBaseInfo)
                 .HasForeignKey<TrackCreationProgress>(fk => fk.MovieRef);
+
+            //NotMapped Entity Properties
+            builder.Ignore(p => p.BaseId);
         }
     }
 
@@ -33,6 +38,9 @@ namespace NetChill.Persistence.Configurations
         public void Configure(EntityTypeBuilder<MovieProduction> builder)
         {
             builder.HasKey(key => key.ProductionId);
+
+            //NotMapped Entity Properties
+            builder.Ignore(p => p.BaseId);
         }
     }
 
@@ -44,6 +52,9 @@ namespace NetChill.Persistence.Configurations
         public void Configure(EntityTypeBuilder<MovieClip> builder)
         {
             builder.HasKey(key => key.ClipId);
+
+            //NotMapped Entity Properties
+            builder.Ignore(p => p.BaseId);
         }
     }
 
@@ -55,6 +66,9 @@ namespace NetChill.Persistence.Configurations
         public void Configure(EntityTypeBuilder<TrackCreationProgress> builder)
         {
             builder.HasKey(key => key.Id);
+
+            //NotMapped Entity Properties
+            builder.Ignore(p => p.BaseId);
         }
     }
 
@@ -66,6 +80,9 @@ namespace NetChill.Persistence.Configurations
         public void Configure(EntityTypeBuilder<MovieGenre> builder)
         {
             builder.HasKey(key => key.GenreId);
+
+            //NotMapped Entity Properties
+            builder.Ignore(p => p.BaseId);
         }
     }
 
@@ -77,6 +94,9 @@ namespace NetChill.Persistence.Configurations
         public void Configure(EntityTypeBuilder<MovieLanguage> builder)
         {
             builder.HasKey(key => key.LanguageId);
+
+            //NotMapped Entity Properties
+            builder.Ignore(p => p.BaseId);
         }
     }
 }

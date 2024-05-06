@@ -20,7 +20,6 @@ namespace NetChill.Domain.Entities.Movie
         public MovieProduction MovieProduction { get; set; }
         public MovieClip MovieClip { get; set; }
         public TrackCreationProgress TrackCreationProgress { get; set; }
-
     }
 
 
@@ -45,7 +44,6 @@ namespace NetChill.Domain.Entities.Movie
         public string? VideoClipPath { get; set; }
         public string? MovieTrailerUrl { get; set; }
         public DateTime UploadDate { get; set; }
-
 
         public Guid MovieRef { get; set; }
         public MovieBaseInfo MovieBaseInfo { get; set; }

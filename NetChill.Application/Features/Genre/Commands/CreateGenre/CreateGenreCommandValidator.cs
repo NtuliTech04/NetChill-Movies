@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using NetChill.Domain.Global;
+using NetChill.Domain.Constants;
 
 namespace NetChill.Application.Features.Genre.Commands.CreateGenre
 {

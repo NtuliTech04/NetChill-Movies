@@ -36,7 +36,7 @@ namespace NetChill.Application.Features.Movie.BaseInfo.Queries.GetMovieInfoById
 
         public async Task<Result<GetMovieInfoByIdDto>> Handle(GetMovieInfoByIdQuery query, CancellationToken cancellationToken)
         {
-            var entity = await _unitOfWork.Repository<MovieBaseInfo>().GetByGuidIdAsync(query.MovieId);
+            var entity = await _unitOfWork.Repository<MovieBaseInfo>().GetByIdAsync(query.MovieId);
             
             if (entity != null)
             {
@@ -47,7 +47,7 @@ namespace NetChill.Application.Features.Movie.BaseInfo.Queries.GetMovieInfoById
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

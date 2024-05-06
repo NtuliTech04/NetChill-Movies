@@ -45,7 +45,7 @@ namespace NetChill.Application.Features.Genre.Commands.CreateGenre
             }
             catch (Exception ex)
             {
-                throw new BadRequestException(ConstantText.Error520, ex);
+                throw new BadRequestException(ResponseConstants.Error520, ex);
             }
         }
     }

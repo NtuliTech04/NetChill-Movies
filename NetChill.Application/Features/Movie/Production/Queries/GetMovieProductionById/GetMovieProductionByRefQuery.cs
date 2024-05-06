@@ -50,7 +50,7 @@ namespace NetChill.Application.Features.Movie.Production.Queries.GetMovieProduct
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

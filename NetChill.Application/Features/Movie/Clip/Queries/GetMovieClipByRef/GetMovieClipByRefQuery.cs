@@ -49,7 +49,7 @@ namespace NetChill.Application.Features.Movie.Clip.Queries.GetMovieClipByRef
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

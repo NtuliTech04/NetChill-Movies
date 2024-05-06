@@ -37,7 +37,7 @@ namespace NetChill.Application.Features.Language.Queries.GetLanguageById
 
         public async Task<Result<GetLanguageByIdDto>> Handle(GetLanguageByIdQuery query, CancellationToken cancellationToken)
         {
-            var entity = await _unitOfWork.Repository<MovieLanguage>().GetByIntIdAsync(query.LanguageId);
+            var entity = await _unitOfWork.Repository<MovieLanguage>().GetByIdAsync(query.LanguageId);
 
             if (entity != null)
             {
@@ -48,7 +48,7 @@ namespace NetChill.Application.Features.Language.Queries.GetLanguageById
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

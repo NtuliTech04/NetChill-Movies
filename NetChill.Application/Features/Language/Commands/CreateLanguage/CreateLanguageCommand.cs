@@ -46,7 +46,7 @@ namespace NetChill.Application.Features.Language.Commands.CreateLanguage
             }
             catch (Exception ex)
             {
-                throw new BadRequestException(ConstantText.Error520, ex);
+                throw new BadRequestException(ResponseConstants.Error520, ex);
             }
         }
     }

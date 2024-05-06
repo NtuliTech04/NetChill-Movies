@@ -20,7 +20,7 @@ namespace NetChill.Persistence.Repositories.Movie
         //Check movie existence by Id
         public async Task<bool> CheckMovieExistence(Guid Id)
         {
-            var checkMovie = await _repository.GetByGuidIdAsync(Id);
+            var checkMovie = await _repository.GetByIdAsync(Id);
 
             if (checkMovie == null)
             {

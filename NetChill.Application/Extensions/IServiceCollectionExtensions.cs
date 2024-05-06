@@ -18,7 +18,7 @@ namespace NetChill.Application.Extensions
 
         private static void AddMediator(this IServiceCollection services)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediatR(m => m.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         }
 
         private static void AddAutoMapper(this IServiceCollection services)

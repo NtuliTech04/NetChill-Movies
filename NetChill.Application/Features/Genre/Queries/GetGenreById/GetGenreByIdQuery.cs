@@ -36,7 +36,7 @@ namespace NetChill.Application.Features.Genre.Queries.GetGenreById
 
         public async Task<Result<GetGenreByIdDto>> Handle(GetGenreByIdQuery query, CancellationToken cancellationToken)
         {
-            var entity = await _unitOfWork.Repository<MovieGenre>().GetByIntIdAsync(query.GenreId);
+            var entity = await _unitOfWork.Repository<MovieGenre>().GetByIdAsync(query.GenreId);
 
             if (entity != null)
             {
@@ -47,7 +47,7 @@ namespace NetChill.Application.Features.Genre.Queries.GetGenreById
                 }
                 catch (Exception ex)
                 {
-                    throw new BadRequestException(ConstantText.Error520, ex);
+                    throw new BadRequestException(ResponseConstants.Error520, ex);
                 }
             }
             else

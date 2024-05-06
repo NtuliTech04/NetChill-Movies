@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using NetChill.Application.Interfaces;
-using NetChill.Domain.Global;
+using NetChill.Domain.Constants;
 
 namespace NetChill.Application.Features.Movie.BaseInfo.Commands.CreateInfo
 {

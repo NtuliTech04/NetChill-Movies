@@ -8,7 +8,7 @@ using NetChill.Persistence.Contexts;
 
 #nullable disable
 
-namespace NetChill.Persistence.Migrations.IdentityDb
+namespace NetChill.Persistence.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
     partial class IdentityDbContextModelSnapshot : ModelSnapshot

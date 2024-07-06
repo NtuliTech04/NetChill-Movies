@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="info-header row">
+    <div class="title-nav">
+      <h3 class="title-text text-center">Add Movie Production</h3>
+    </div>
+  </div>
+  <div class="form-content row">
+    <div class="insert-section mt-5 col-6">
+      <form [formGroup]="movieProductionForm" (ngSubmit)="onSubmit()">
+        <input class="form-control" type="hidden" formControlName="movieRef">
+        <div class="row mb-3 d-flex">
+          <div class="col-3">
+            <label for="#" class="form-label">Directors</label>
+          </div>
+          <div class="col-9 d-flex">
+            <textarea class="form-control" rows="3" formControlName="directors"></textarea>
+            <div class="d-flex">
+              <span class="px-2">
+                <button type="button" (click)="populateTextArea($event)" onclick="blur()" class="btn btn-outline-dark"
+                  id="directors">Add</button>
+              </span>
+              <span class="px-2">
+                <button type="button" (click)="clearTextArea($event)" onclick="blur()" class="btn btn-outline-danger"
+                  id="directors">Clear</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <!--Validation-->
+          <div class="text-danger offset-3" *ngIf="submitted && validateForm['directors'].hasError('required')">Movie
+            Directors field is required.</div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-3">
+            <label for="#" class="form-label">Writers</label>
+          </div>
+          <div class="col-9 d-flex">
+            <textarea class="form-control" rows="3" formControlName="writers"></textarea>
+            <div class="d-flex">
+              <span class="px-2">
+                <button type="button" (click)="populateTextArea($event)" onclick="blur()" class="btn btn-outline-dark"
+                  id="writers">Add</button>
+              </span>
+              <span class="px-2">
+                <button type="button" (click)="clearTextArea($event)" onclick="blur()" class="btn btn-outline-danger"
+                  id="writers">Clear</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-3">
+            <label for="#" class="form-label">Stars</label>
+          </div>
+          <div class="col-9 d-flex">
+            <textarea class="form-control" rows="3" formControlName="movieStars"></textarea>
+            <div class="d-flex">
+              <span class="px-2">
+                <button type="button" (click)="populateTextArea($event)" onclick="blur()" class="btn btn-outline-dark"
+                  id="movieStars">Add</button>
+              </span>
+              <span class="px-2">
+                <button type="button" (click)="clearTextArea($event)" onclick="blur()" class="btn btn-outline-danger"
+                  id="movieStars">Clear</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex mt-5">
+          <div class="text-center">
+            <div class="mb-5">
+              <button class="btn btn-success btn-primary rounded-0" type="submit">Save Movie Production</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="create-section mt-5 col-6">
+      <div class="custom-panel">
+        <!-- Panel Heading -->
+        <div class="myPanel-heading">
+          <h5>Create Your List Here</h5>
+        </div>
+        <!-- Panel Body -->
+        <div class="myPanel-body">
+          <div class="alert alert-info" *ngFor="let item of myItems; let i= index">
+            {{item}}
+            <span class="px-2">
+              <a class="item-control" href="javascript:void(0);" (click)="DeleteItem(i)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </span>
+            <span class="px-2">
+              <a class="item-control" href="javascript:void(0);" (click)="EditItem(i)">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+            </span>
+          </div>
+          <div class="alert alert-info" *ngIf="myItems.length == 0">The List Is Empty !!!</div>
+        </div>
+
+        <!-- Panel Footer -->
+        <div class="myPanel-footer">
+          <!-- Form that gets user input -->
+          <form name="itemForm">
+            <input id="item" name="item" class="form-control" type="text" [(ngModel)]="newItem" placeholder="Enter Name"
+              minlength="3" maxlength="50" required="required">
+            <!--Validation-->
+            <div class="text-danger" style="display: none; font-size: 14px;" id="isExist">This item already exist.</div>
+          </form>
+          <div class="control-buttons">
+            <span class="px-2">
+              <button type="submit" (click)="AddItem()" [disabled]="IsForUpdate == true" onclick="blur()"
+                class="btn btn-outline-success">Add</button>
+            </span>
+            <span class="px-2">
+              <button type="submit" (click)="UpdateItem()" [disabled]="IsForUpdate == false" onclick="blur()"
+                class="btn btn-outline-primary">Update</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

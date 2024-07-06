@@ -1,0 +1,33 @@
+<div *ngIf="latestMediaData.length > 4">
+    <div class="movies-content-heading">
+        <h3>Latest <span>Movies</span></h3>
+    </div>
+    <div class="latest-movies-slider">
+        <div class="row">
+            <p-carousel [value]="latestInfoData.slice(0, 10)" [numVisible]="5" [numScroll]="1" [circular]="false"
+                [showNavigators]="true" [showIndicators]="true">
+                <ng-template ngFor let-info [ngForOf]="latestInfoData" pTemplate="item">
+                    <div class="col-12 movie-item-slider hvr-sweep-img">
+                        <a (click)="clickHandler(info.movieId)" class="movie-details">
+                            <div class="movie-poster latest">
+                                <img title="{{info.title}}" [src]="posterUrl(info.movieId)" alt="">
+                                <div class="play-icon">
+                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <p class="title">{{info.title}}</p>
+                                <div class="other-info">
+                                    <span class="release-info">{{info.yearReleased}}</span>
+                                    <span class="duration-info">
+                                        <i class="fa fa-clock" aria-hidden="true"> {{getDuration(info.movieId)}}</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+    </div>
+</div>

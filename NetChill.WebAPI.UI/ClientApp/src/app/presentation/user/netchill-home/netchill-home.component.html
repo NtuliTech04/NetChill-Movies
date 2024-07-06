@@ -1,0 +1,57 @@
+<div class="chill-home">
+    <app-filter-sort></app-filter-sort>
+    <div class="movies-content container-fluid">
+        <!---Upcoming movies owl-carousel--->
+        <app-carousel-upcoming id="upcoming"></app-carousel-upcoming>
+        <!---//End--->
+        
+        <!---Latest movies primeng-carousel--->
+        <app-carousel-latest id="latest"></app-carousel-latest>
+        <!---//End--->
+        
+        <!---Featured movies owl-carousel--->
+        <app-carousel-featured id="featured"></app-carousel-featured>
+        <!---//End--->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>netchill-home works!</p>
+<p>This is User Home page using User layout</p>
+
+<table *ngIf="BaseInfoData.length > 0">
+    <thead>
+        <tr>
+            <th>Poster File</th>
+            <th>Clip File</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of MediaFilesData">
+            <td><img [src]="filePath(movie.moviePosterPath)"alt="movie poster" style="width:200px; height:296px;"></td>
+            <td>
+                <video width="800" height="400" controls>
+                    <source [src]="filePath(movie.videoClipPath)" type="video/mp4">
+                    <source [src]="filePath(movie.videoClipPath)" type="video/webm">
+                    <source [src]="filePath(movie.videoClipPath)" type="video/ogg">
+                    </video>
+            </td>
+        </tr>
+    </tbody>
+</table> -->

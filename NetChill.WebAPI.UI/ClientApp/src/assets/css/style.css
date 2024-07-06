@@ -1,0 +1,22 @@
+@charset "UTF-8"; /**Global Stylesheet**/
+
+
+/***Page Titles***/
+.info-header{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.info-header .title-nav {
+    background-color: #f5f5f5;
+    padding-top: 10px;
+    margin-left: 25%;
+    width: 50%;
+}
+.title-nav .title-text{
+    font-size:26px;
+    opacity:.9;
+}
+/**//*Page Titles***/
+
+
+

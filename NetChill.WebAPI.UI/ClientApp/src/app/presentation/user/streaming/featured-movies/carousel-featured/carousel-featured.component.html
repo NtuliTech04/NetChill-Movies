@@ -1,0 +1,34 @@
+<div *ngIf="featuredMediaData.length > 5">
+    <div class="movies-content-heading">
+        <h3>Featured <span>Movies</span></h3>
+    </div>
+    <div class="featured-movies-slider">
+        <div class="row">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let movie of featuredInfoData.slice(0, 6); let i = index">
+                    <ng-template carouselSlide id="{{movie.movieId}}">
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a (click)="clickHandler(movie.movieId)" class="movie-details">
+                                <div class="movie-poster featured">
+                                    <img title="{{movie.title}}" [src]="fileUrl(featuredMediaData[i].moviePosterPath)" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">{{movie.title}}</p>
+                                    <div class="other-info">
+                                        <span class="release-info">{{movie.yearReleased}}</span>
+                                        <span class="duration-info">
+                                            <i class="fa fa-clock" aria-hidden="true"> {{getDuration(movie.movieId)}}</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

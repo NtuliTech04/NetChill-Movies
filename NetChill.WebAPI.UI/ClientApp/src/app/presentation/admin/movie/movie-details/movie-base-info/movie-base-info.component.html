@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="info-header row">
+    <div class="title-nav">
+      <h3 class="title-text text-center">Add Movie Info</h3>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-7">
+        <div class="form-container">
+          <form [formGroup]="addBaseInfoForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Movie Title</label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" type="text" name="title" id="title" formControlName="title">
+                <!--Validation-->
+                <div class="text-danger" *ngIf="submitted && validateForm['title'].hasError('required')">Movie Title field is required.</div>
+                <div class="text-danger" *ngIf="submitted && validateForm['title'].hasError('minlength')">Movie Title must not exceed 255 characters.</div>
+                <div class="text-danger" *ngIf="submitted && validateForm['title'].hasError('pattern')">Movie Title can only be in 'Proper Case' and/or numerics.</div>
+              </div>
+            </div>
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Category/Genre</label>
+              </div>
+              <div class="col-6">
+                <ng-select [multiple]="true" [items]="genreData" bindLabel="genreName" bindValue="genreName" notFoundText="Movie Genres Not Found!" placeholder="Select Genres" formControlName="genre"></ng-select>
+                <!--Validation-->
+                <div class="text-danger" *ngIf="submitted && validateForm['genre'].hasError('required')">Movie Genre field is required.</div>
+              </div>
+            </div>
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Description</label>
+              </div>
+              <div class="col-6">
+                <textarea class="form-control" rows="5" name="description" id="description" formControlName="description"></textarea>
+                <!--Validation-->
+                <div class="text-danger" *ngIf="submitted && validateForm['description'].hasError('required')">Movie Description field is required.</div>
+                <div class="text-danger" *ngIf="submitted && validateForm['description'].hasError('minlength')">Description must not exceed 8000 characters.</div>
+                <div class="text-danger" *ngIf="submitted && validateForm['description'].hasError('pattern')">Movie Description can only be in 'Sentence case.'</div>
+              </div>
+            </div>
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Spoken Languages</label>
+              </div>
+              <div class="col-6">
+                <ng-select [multiple]="true" [items]="languageData" bindLabel="spokenLanguage" bindValue="spokenLanguage" notFoundText="Movie Languages Not Found!" placeholder="Select Languages" formControlName="languages"></ng-select>
+                <!--Validation-->
+                <div class="text-danger" *ngIf="submitted && validateForm['languages'].hasError('required')">Movie Languages field is required.</div>
+              </div>
+            </div>
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Is Featured</label>
+              </div>
+              <div class="col-6">
+                <input type="checkbox" name="isFeatured" id="isFeatured" formControlName="isFeatured">
+              </div>
+            </div>
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Year Released</label>
+              </div>
+              <div class="col-6">
+                <select class="form-control form-select" formControlName="yearReleased">
+                  <option value="" disabled selected>--Select--</option>
+                  <option *ngFor="let year of yearsList" [value]="year">{{year}}</option>
+                </select>
+                <!--Validation-->
+                <div class="text-danger" *ngIf="submitted && validateForm['yearReleased'].hasError('required')">Year Released field is required.</div>
+                <div class="text-danger" *ngIf="submitted && validateForm['yearReleased'].hasError('pattern')">Year Released can only be in numerics.</div>
+              </div>
+            </div>
+            <div class="mb-3 d-flex">
+              <div class="col-3">
+                <label for="#" class="form-label">Available From</label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" type="date" name="availableFrom" id="availableFrom" formControlName="availableFrom">
+                <!--Validation-->
+                <div class="text-danger" *ngIf="submitted && validateForm['availableFrom'].hasError('required')">Select the date this movie will be available.</div>
+                <div class="text-danger" *ngIf="submitted && validateForm['availableFrom'].hasError('invalidDate')">Selected date cannot be less than today's date.</div>
+              </div>
+            </div>
+            <div class="mb-5">
+              <div class="text-center">
+                <button class="btn btn-success btn-primary rounded-0 w-25" type="submit">Add New Movie</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="info-header row">
+    <div class="title-nav">
+      <h3 class="title-text text-center">Add Movie Genre</h3>
+    </div>
+  </div>
+  <form [formGroup]="createGenreForm" (ngSubmit)="onSubmit()">
+    <div class="form-content row">
+      <div class="insert-section mt-5 col-6">
+        <div class="row mb-3 d-flex">
+          <div class="col-3">
+            <label for="#" class="form-label">Name</label>
+          </div>
+          <div class="col-9">
+            <input class="form-control" type="text" formControlName="genreName" name="genreName" id="genreName">
+            <!--Validation-->
+            <div class="text-danger" *ngIf="submitted && validateForm['genreName'].hasError('required')">Genre Name field is required.</div>
+            <div class="text-danger" *ngIf="submitted && validateForm['genreName'].hasError('pattern')">Genre Name can only be in 'Proper Case'.</div>
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-3">
+            <label for="#" class="form-label">Description</label>
+          </div>
+          <div class="col-9">
+            <input class="form-control" type="text" formControlName="genreDescription" name="genreDescription" id="genreDescription">
+            <!--Validation-->
+            <div class="text-danger" *ngIf="submitted && validateForm['genreDescription'].hasError('required')">Genre Description field is required.</div>
+            <div class="text-danger" *ngIf="submitted && validateForm['genreDescription'].hasError('pattern')">Genre Description can only be in 'Sentence case'.</div>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="offset-3 col-9">
+            <div class="text-center mb-5">
+              <button class="btn btn-success btn-primary rounded-0 w-50" type="submit">Add Genre</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="list-section mt-5 col-6"></div> -->
+    </div>
+  </form>
+</div>

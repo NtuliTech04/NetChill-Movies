@@ -1,0 +1,50 @@
+<div class="selected-movie p-5">
+    <div class="movie-details">
+        <div class="row">
+            <div class="col-3">
+                <div class="poster-panel">
+                    <img class="movie-poster" #poster alt="Movie Poster">
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="watch-now">
+                    <a class="btn btn-secondary" [routerLink]="['/SelectedMovie', selectedMovieId]" fragment="watch-movie"><i class="fa fa-play"></i> Watch Now</a>
+                </div>
+                <div class="movie-title"><h3>{{infoData.title}}</h3></div>
+                <div class="watch-options">
+                    <span class="save" title="Save To Watch Later">
+                        <button class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Save</button>
+                    </span>
+                    <span class="quality" title="Video Quality">
+                        <button class="btn btn-secondary"><i class="fa fa-video"></i> HD</button>
+                    </span>
+                    <span class="rate">
+                        <button class="btn btn-info"><i class="fa fa-star"></i> Rate</button>
+                    </span>
+                </div>
+                <div class="movie-summary mt-3">
+                    <p>{{infoData.description}}</p>
+                </div>
+                <div class="movie-info">
+                    <div class="row">
+                        <div class="col-4">
+                            <span><b>Year Released: </b>{{infoData.yearReleased}}</span>
+                            <span><b>Genre: </b>{{infoData.genre}}</span>
+                            <span><b>Languages: </b>{{infoData.languages}}</span>
+                        </div>
+                        <div class="col-8">
+                            <span><b>Duration:  </b>{{movieDuration}}</span>
+                            <span><b>Directors: </b>{{productionData.directors}}</span>
+                            <span><b>Writers: </b>{{productionData.writers}}</span>
+                            <span><b>Stars: </b>{{productionData.movieStars}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="movie-stream">
+        <div class="video_player">
+            <video id="watch-movie" preload="metadata" #clip controls></video>
+        </div>
+    </div>

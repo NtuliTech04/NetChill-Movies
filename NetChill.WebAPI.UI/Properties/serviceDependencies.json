@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:NetChillUsersConnection"
+    },
+    "mssql2": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:NetChillMoviesConnection"
+    },
+    "mssql3": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:NetChillUsersProdConnection"
+    },
+    "mssql4": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:NetChillMoviesProdConnection"
+    },
+    "mssql5": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:NetChillUsersDevConnection"
+    },
+    "identityapp1": {
+      "ignored": "true",
+      "type": "identityapp"
+    },
+    "apis1": {
+      "ignored": "true",
+      "type": "apis.azure"
+    },
+    "mssql6": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:NetChillMoviesDevConnection"
+    }
+  }
+}

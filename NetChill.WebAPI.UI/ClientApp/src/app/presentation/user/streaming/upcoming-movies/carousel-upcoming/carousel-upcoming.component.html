@@ -1,0 +1,35 @@
+<div *ngIf="upcomingMediaData.length > 5">
+    <div class="movies-content-heading">
+        <h3>Upcoming <span>Movies</span></h3>
+    </div>
+    <div class="upcoming-movies-slider">
+        <div class="row">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let movie of upcomingInfoData.slice(0, 6); let i = index">
+                    <ng-template carouselSlide id="{{movie.movieId}}">
+                        <div class="col-12 movie-item-slider hvr-sweep-img">
+                            <a (click)="clickHandler(movie.movieId)" class="movie-details">
+                                <!-- <a href="{{'#/SelectedUpcoming/'+ movie[0].movieId}}" (click)="clickhandler(movie[0].movieId)" class="movie-details"> -->
+                                <div class="movie-poster upcoming">
+                                    <img title="{{movie.title}}" [src]="posterUrl(upcomingMediaData[i].moviePosterPath)" alt="">
+                                    <div class="play-icon">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="movie-info">
+                                    <p class="title">{{movie.title}}</p>
+                                    <div class="other-info">
+                                        <span class="release-info">{{movie.yearReleased}}</span>
+                                        <span class="availability-info">
+                                            <i class="fa fa-calendar" aria-hidden="true"> {{selectMonth(movie.availableFrom)}}</i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

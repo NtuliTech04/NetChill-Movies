@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<!--warning disable CS8632-->
+		<NoWarn>$(NoWarn);CS8632</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.25" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NetChill.Application\NetChill.Application.csproj" />
+	  <ProjectReference Include="..\NetChill.Infrastructure\NetChill.Infrastructure.csproj" />
+	  <ProjectReference Include="..\NetChill.Persistence\NetChill.Persistence.csproj" />
+	</ItemGroup>
+
+</Project>

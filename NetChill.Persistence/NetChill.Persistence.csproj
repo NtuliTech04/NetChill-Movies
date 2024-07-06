@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<!--warning disable CS8632-->
+		<NoWarn>$(NoWarn);CS8632</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MediatR" Version="12.1.1" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.25" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.25" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.25" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.25" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NetChill.Application\NetChill.Application.csproj" />
+	  <ProjectReference Include="..\NetChill.Domain\NetChill.Domain.csproj" />
+	  <ProjectReference Include="..\NetChill.Infrastructure\NetChill.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>

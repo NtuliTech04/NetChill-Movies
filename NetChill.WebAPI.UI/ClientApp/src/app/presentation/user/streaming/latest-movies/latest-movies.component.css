@@ -1,0 +1,129 @@
+.movies-content-heading h3 {
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    padding-top: 1em;
+}
+
+.movies-content-heading h3 span {
+    background: #d3d3d3;
+    padding: 0 6px;
+}
+
+.new-movies .col-2 {
+    padding: 0;
+    height: 60vh;
+    border: 6px solid #fff;
+    background-color: #ededf1;
+}
+
+a.movie-details {
+    text-decoration: none;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 48vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.movie-info {
+    color: #333;
+    font-size: 15px;
+    background-color: #e2e2e9;
+}
+
+.movie-info p.title {
+    text-align: center;
+}
+
+span.release-info {
+    color: #fff;
+    padding: 0 5px;
+    background-color: #353839;
+}
+
+span.duration-info,
+span.availability-info {
+    float: inline-end;
+    margin: auto 5px;
+}
+
+.movie-poster .play-icon i {
+    font-size: 5em;
+    color: #fff;
+}
+
+.new-movies .col-2:hover .play-icon {
+    display: block;
+    position: absolute;
+    top: 29.5%;
+    left: 33.8%;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.new-movies .col-2 {
+    position: relative;
+}
+
+.movie-poster .play-icon {
+    display: none;
+}
+
+.hvr-sweep-img {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    overflow: hidden;
+}
+
+.hvr-sweep-img:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-sweep-img:hover,
+.hvr-sweep-img:focus,
+.hvr-sweep-img:active {
+    color: #fff;
+}
+
+.hvr-sweep-img:hover:before,
+.hvr-sweep-img:focus:before,
+.hvr-sweep-img:active:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.movie-poster img:hover {
+    opacity: 0.5;
+}

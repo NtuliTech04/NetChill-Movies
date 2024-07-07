@@ -11,9 +11,9 @@ namespace NetChill.Infrastructure.Identity.Seeds
             #region First User - SuperAdmin
             var appUser1 = new ApplicationUser()
             {
-                UserName = "super.admin",
-                Email = "super.admin@netchill.net",
-                FirstName = "Super",
+                UserName = "admin",
+                Email = "admin@netchill.net",
+                FirstName = "NetChill",
                 LastName = "Admin",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true

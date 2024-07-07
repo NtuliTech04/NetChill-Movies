@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NetChill.Persistence.Migrations
+namespace NetChill.Persistence.Migrations.NetChillDb
 {
-    public partial class Initial : Migration
+    public partial class InitialNetChillMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

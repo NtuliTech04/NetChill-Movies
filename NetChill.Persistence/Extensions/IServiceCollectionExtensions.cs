@@ -27,8 +27,7 @@ namespace NetChill.Persistence.Extensions
 
         private static void AddIdentityContext(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("NetChillUsersDevConnection");
-            //var connectionString = configuration.GetConnectionString("NetChillUsersProdConnection"); 
+            var connectionString = configuration.GetConnectionString("NetChillUsersConnection");
 
             services.AddDbContext<IdentityDbContext>(options =>
               options.UseSqlServer(connectionString,
@@ -37,8 +36,7 @@ namespace NetChill.Persistence.Extensions
 
         private static void AddApplicationContext(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("NetChillMoviesDevConnection");
-            //var connectionString = configuration.GetConnectionString("NetChillMoviesProdConnection"); 
+            var connectionString = configuration.GetConnectionString("NetChillMoviesConnection");
 
             services.AddDbContext<NetChillDbContext>(options =>
                 options.UseSqlServer(connectionString,

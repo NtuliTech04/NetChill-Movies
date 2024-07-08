@@ -6,6 +6,7 @@
 # Custom
 #.TestData/
 #.Media Files/
+
 ## Custom
 /NetChill.WebAPI.UI/appsettings.json
 /NetChill.WebAPI.UI/appsettings.Development.json
@@ -269,7 +270,7 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
-*.mdf
+# *.mdf
 *.ldf
 *.ndf
 
@@ -368,5 +369,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/NetChill.WebAPI.UI/appsettings.json
-/NetChill.WebAPI.UI/appsettings.Development.json
+

@@ -6,6 +6,9 @@
 # Custom
 #.TestData/
 #.Media Files/
+## Custom
+/NetChill.WebAPI.UI/appsettings.json
+/NetChill.WebAPI.UI/appsettings.Development.json
 
 # User-specific files
 *.rsuser
@@ -365,3 +368,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/NetChill.WebAPI.UI/appsettings.json
+/NetChill.WebAPI.UI/appsettings.Development.json

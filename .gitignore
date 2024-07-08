@@ -370,3 +370,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+/NetChill.WebAPI.UI/ClientApp/package-lock.json
